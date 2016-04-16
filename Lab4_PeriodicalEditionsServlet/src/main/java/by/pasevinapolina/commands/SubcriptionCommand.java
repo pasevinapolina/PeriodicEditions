@@ -1,7 +1,10 @@
 package by.pasevinapolina.commands;
 
+import by.pasevinapolina.dao.ReaderDao;
 import by.pasevinapolina.dao.SubscriptionDao;
+import by.pasevinapolina.dao.impl.ReaderDaoImpl;
 import by.pasevinapolina.dao.impl.SubscriptionDaoImpl;
+import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
@@ -22,13 +25,12 @@ public class SubcriptionCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
 
         String page = null;
-
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         List<Subscription> unpaidSubscriptions = new ArrayList<Subscription>();
 
         try {
             EntityManager entityManager = (EntityManager)request.getServletContext().getAttribute("em");
-            subscriptionDao = new SubscriptionDaoImpl(entityManager) ;
+            subscriptionDao = new SubscriptionDaoImpl(entityManager);
 
             subscriptions = subscriptionDao.getAllSubscriptions();
             unpaidSubscriptions = subscriptionDao.getUnpaidSubscriptions();
