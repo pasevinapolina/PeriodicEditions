@@ -76,8 +76,8 @@
             <c:forEach var="subscription" items="${subscriptions}" varStatus="status">
                 <tr>
                     <td>${subscription.id}</td>
-                    <td></td>
-                    <td></td>
+                    <td>${subscription.edition.name}</td>
+                    <td>${subscription.reader.name}</td>
                     <td>${subscription.duration}</td>
                     <td>
                         <label>
