@@ -76,9 +76,8 @@
                     <td>${subscription.reader.name}</td>
                     <td>${subscription.duration}</td>
                     <td>
-                        <label>
-                            <input type="checkbox" disabled checked autocomplete="off">
-                        </label>
+                        <input id="unpaidInfoCheck" class="magic-checkbox" disabled checked name="unpaidCheck" type="checkbox">
+                        <label for="unpaidInfoCheck" class="text"></label>
                     </td>
                 </tr>
             </c:forEach>
