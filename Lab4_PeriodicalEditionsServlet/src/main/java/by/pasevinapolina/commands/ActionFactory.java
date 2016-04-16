@@ -5,10 +5,15 @@ import by.pasevinapolina.utils.MessageManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * Factory for commands
  */
 public class ActionFactory {
 
+    /**
+     * Defines what command to create
+     * @param request Http request
+     * @return New command
+     */
     public ActionCommand defineCommand(HttpServletRequest request) {
 
         ActionCommand currentCommand = new EmptyCommand();
