@@ -30,7 +30,7 @@
 
     <hr>
     <div>
-        <form name="editionForm" method="POST" action="PeriodicEdition" role="form">
+        <form name="editionForm" method="GET" action="PeriodicEdition" role="form">
             <input type="hidden" name="command" value="editions">
         </form>
 
@@ -79,15 +79,15 @@
 
                         <div class="form-group">
                             <label for="author">Издательство</label>
-                            <input type="text" class="form-control" id="author" placeholder="Введите издательство">
+                            <input type="text" name="author" class="form-control" id="author" placeholder="Введите издательство">
                         </div>
                         <div class="form-group">
                             <label for="name">Название</label>
-                            <input type="text" class="form-control" id="name" placeholder="Введите название">
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Введите название">
                         </div>
                         <div class="form-group">
                             <label for="outFreq">Выходит 1 раз в </label>
-                            <input type="number" min="0" max="365" class="form-control"
+                            <input type="number" name="outFreq" min="0" max="365" class="form-control"
                                    id="outFreq" placeholder="Частота выхода в днях">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
