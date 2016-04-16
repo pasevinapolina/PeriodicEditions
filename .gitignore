@@ -1,4 +1,29 @@
+# Covers JetBrains IDE IntelliJ
+*.iml
+
+## Directory-based project format:
+.idea/
+
+## File-based project format:
+*.ipr
+*.iws
+
+## Plugin-specific files:
+# IntelliJ
+out/
+
+# Maven
+target/
+
+*.properties
+
+# Java
 *.class
+
+# Package Files #
+*.jar
+*.war
+*.ear*.class
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
