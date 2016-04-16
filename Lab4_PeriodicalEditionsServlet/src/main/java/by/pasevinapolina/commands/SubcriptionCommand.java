@@ -12,6 +12,7 @@ import by.pasevinapolina.utils.DAOException;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -27,6 +28,7 @@ public class SubcriptionCommand implements ActionCommand {
         String page = null;
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         List<Subscription> unpaidSubscriptions = new ArrayList<Subscription>();
+        HashSet<String> readers = new HashSet<String>();
 
         try {
             EntityManager entityManager = (EntityManager)request.getServletContext().getAttribute("em");
@@ -41,6 +43,11 @@ public class SubcriptionCommand implements ActionCommand {
             e.printStackTrace();
         }
 
+        for (Subscription s : subscriptions) {
+            readers.add(s.getReader().getName());
+        }
+
+        request.setAttribute("readers", readers);
         request.setAttribute("subscriptions", subscriptions);
         request.setAttribute("unpaid", unpaidSubscriptions);
         page = ConfigurationManager.getProperty("path.page.subscriptions");

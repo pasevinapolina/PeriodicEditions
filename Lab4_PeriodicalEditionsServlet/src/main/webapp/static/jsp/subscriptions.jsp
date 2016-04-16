@@ -35,10 +35,9 @@
                 <div class="form-group">
                     <select id="readerList" class="selectpicker" data-live-search="true"
                             data-style="btn-primary" title="Выбрать читателя ...">
-                        <option>John Newman</option>
-                        <option>Иван Иванов</option>
-                        <option>Mary Jane</option>
-                        <option>A really really long option made to illustrate an issue with the live search in an inline form</option>
+                        <c:forEach var="reader" items="${readers}" varStatus="status">
+                            <option>${reader}</option>
+                        </c:forEach>
                     </select>
                 </div>
             </form>
