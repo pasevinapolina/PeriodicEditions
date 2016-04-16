@@ -24,7 +24,7 @@
         <p>
             <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="editions" />
-                <button type="submit" class="btn btn-default">Доступные издания</button>
+                <button type="submit" class="btn btn-primary">Доступные издания</button>
             </form>
         </p>
     </div>
@@ -37,7 +37,7 @@
             <p>
                 <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="editions" />
-                    <button type="submit" class="btn btn-default">Перейти к списку &raquo;</button>
+                    <button type="submit" class="btn btn-primary">Перейти к списку &raquo;</button>
                 </form>
             </p>
         </div>
@@ -48,7 +48,7 @@
             <p>
                 <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="subscriptions" />
-                    <button type="submit" class="btn btn-default">Подробнее &raquo;</button>
+                    <button type="submit" class="btn btn-primary">Подробнее &raquo;</button>
                 </form>
             </p>
         </div>
@@ -59,7 +59,7 @@
             <p>
                 <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="payments" />
-                    <button type="submit" class="btn btn-default">Оплатить подписку &raquo;</button>
+                    <button type="submit" class="btn btn-primary">Оплатить подписку &raquo;</button>
                 </form>
             </p>
         </div>
