@@ -12,22 +12,24 @@
 </head>
 <body>
 
-<input type="hidden" id="errorCode" value="${pageContext.errorData.statusCode}">
-<canvas id="myCanvas"></canvas>
-<script type="text/javascript" src="../../../static/js/bubbles.js"></script>
-<script type="text/javascript" src="../../../static/js/error.js"></script>
-
 <div class="container">
     <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-9">
             <h2>Ой! Страница не была найдена</h2>
         </div>
-        <div class="col-lg-4">
-            <h3><a class="glyphicon glyphicon-home btn btn-lg btn-link" href="/PeriodicEdition">Вернуться на главную</a></h3>
-        </div>
-    </div>
 
-    <hr>
+        <div class="col-lg-3">
+            <h3><a class="glyphicon glyphicon-home btn btn-lg btn-link" href="/PeriodicEdition"> Вернуться на главную</a></h3>
+        </div>
+
+        <hr>
+
+        <input type="hidden" id="errorCode" value="${pageContext.errorData.statusCode}">
+        <canvas id="myCanvas"></canvas>
+        <script type="text/javascript" src="../../../static/js/bubbles.js"></script>
+        <script type="text/javascript" src="../../../static/js/error.js"></script>
+
+    </div>
 
     <div class="spoiler">
         <div class="spoiler-btn">Дополнительная информация по исключению
