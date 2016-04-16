@@ -41,9 +41,11 @@
                 </div>
             </form>
 
-            <form role="form">
+            <form method="GET" name="unpaidForm" action="PeriodicEdition" role="form">
+                <input type="hidden" name="command" value="subscriptions">
                 <div class="row">
-                        <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox">
+                        <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox"
+                        onchange="document.getElementById('unpaidCheck').submit()">
                         <label for="unpaidCheck" class="text">Только неоплаченные</label>
                 </div>
             </form>

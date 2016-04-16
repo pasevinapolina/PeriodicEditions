@@ -48,8 +48,11 @@ public class SubcriptionCommand implements ActionCommand {
         }
 
         request.setAttribute("readers", readers);
-        request.setAttribute("subscriptions", subscriptions);
-        request.setAttribute("unpaid", unpaidSubscriptions);
+        if(request.getServletContext().getAttribute("unpaidCheck") != null) {
+            request.setAttribute("subscriptions", unpaidSubscriptions);
+        } else {
+            request.setAttribute("subscriptions", subscriptions);
+        }
         page = ConfigurationManager.getProperty("path.page.subscriptions");
         return page;
     }
