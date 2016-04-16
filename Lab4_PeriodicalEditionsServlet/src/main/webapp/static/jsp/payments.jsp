@@ -81,8 +81,8 @@
             <c:forEach var="payment" items="${payments}" varStatus="status" >
                 <tr>
                     <td>${payment.subscription.id}</td>
-                    <td>${payment.edition.name}, ${payment.edition.author}</td>
-                    <td>${payment.reader.name}</td>
+                    <td>"${payment.subscription.edition.name}", ${payment.subscription.edition.author}</td>
+                    <td>${payment.subscription.reader.name}</td>
                     <td>${payment.payDate}</td>
                     <td>${payment.paySum}</td>
                     <td><a class="glyphicon glyphicon-edit" >Редактировать</a> |
