@@ -8,10 +8,9 @@
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
     <link rel="stylesheet" href="../../static/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../static/css/font-awesome.css"/>
-    <link rel="stylesheet" href="../../static/css/build.css"/>
-    <link href="../../static/css/custom_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../static/css/magic-check.css" />
     <link rel="stylesheet" href="../../static/css/bootstrap-select.css">
+    <link href="../../static/css/custom_styles.css" rel="stylesheet">
 
     <title>Подписки</title>
 </head>
@@ -44,10 +43,8 @@
 
             <form role="form">
                 <div class="row">
-                    <div class="checkbox checkbox-primary">
-                        <input id="unpaidCheck" class="styled" type="checkbox">
-                        <label for="unpaidCheck">Только неоплаченные</label>
-                    </div>
+                        <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox">
+                        <label for="unpaidCheck" class="text">Только неоплаченные</label>
                 </div>
             </form>
         </div>
