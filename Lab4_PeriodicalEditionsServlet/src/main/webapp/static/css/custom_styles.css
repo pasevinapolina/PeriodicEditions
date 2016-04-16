@@ -1,0 +1,60 @@
+.jumbotron {
+    background: url("../images/base2.jpg") no-repeat;
+    -moz-background-size: 100%; /* Firefox 3.6+ */
+    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+    -o-background-size: 100%; /* Opera 9.6+ */
+    background-size: 100%;
+}
+
+.glyphicon-credit-card {
+    color: #d7e2c9;
+}
+
+.glyphicon-circle-arrow-down {
+    color: #d7e2c9;
+}
+
+.glyphicon-ok {
+    color: #d7e2c9;
+}
+
+.spoiler {
+    display: table;
+    position: relative;
+    background-color: #f9fafa;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.spoiler-btn {
+    padding: 2px 6px;
+    cursor: pointer;
+}
+
+.spoiler-body {
+    padding: 6px;
+}
+
+.submitLink {
+    cursor: hand;
+}
+
+table {
+    margin-bottom: 40px;
+}
+
+body {
+    height: auto;
+    margin: 0 auto -80px; /* footer height + space */
+    min-height: 100%;
+    padding: 0 0 80px; /* footer height + space */
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+footer {
+    background: #ffffff 100%;
+}
+
