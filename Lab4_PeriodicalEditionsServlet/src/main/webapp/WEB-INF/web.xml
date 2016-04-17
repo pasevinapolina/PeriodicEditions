@@ -6,16 +6,6 @@
 
     <display-name>PeriodicEditionApplication</display-name>
 
-    <!--<servlet>-->
-        <!--<servlet-name>PeriodicEditionName</servlet-name>-->
-        <!--<servlet-class>by.pasevinapolina.controllers.HomeController</servlet-class>-->
-    <!--</servlet>-->
-
-    <!--<servlet-mapping>-->
-        <!--<servlet-name>PeriodicEditionName</servlet-name>-->
-        <!--<url-pattern>/PeriodicEdition</url-pattern>-->
-    <!--</servlet-mapping>-->
-
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
@@ -23,6 +13,20 @@
     <listener>
         <listener-class>by.pasevinapolina.controllers.ServletListener</listener-class>
     </listener>
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>by.pasevinapolina.controllers.EncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
