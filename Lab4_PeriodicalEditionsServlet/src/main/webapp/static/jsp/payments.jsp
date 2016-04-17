@@ -34,19 +34,24 @@
                     </div>
 
                     <div class="modal-body">
-                        <form role="form">
+                        <form role="form" method="POST" action="PeriodicEdition" name="payForm" id="payForm">
+                            <input type="hidden" name="command" value="add_payment">
+
                             <div class="form-group">
                                 <label for="subscr_id">Номер подписки</label>
-                                <p>№<input type="text" class="form-control" id="subscr_id" placeholder="Введите номер"></p>
+                                <p>№<input type="text" class="form-control" id="subscr_id" name="subscr_id"
+                                           placeholder="Введите номер"></p>
                             </div>
+
                             <div class="form-group">
                                 <label for="duration">Количество дней </label>
-                                <input type="number" min="0" max="365" class="form-control"
+                                <input type="number" name="duration" min="0" max="365" class="form-control"
                                        id="duration" placeholder="Введите количество дней">
                             </div>
+
                             <div class="form-group">
                                 <label for="paySum">Сумма для оплаты</label>
-                                <input type="text" class="form-control" disabled id="paySum" placeholder="0">
+                                <input type="text" class="form-control" name="paySum" disabled id="paySum" placeholder="0">
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-block">

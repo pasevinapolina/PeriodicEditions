@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js" defer></script>
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
@@ -27,25 +27,26 @@
         <hr>
 
         <div class="form-group">
-            <form class="form-inline">
+            <form class="form-inline" action="PeriodicEdition" method="POST" name="readerForm" id="readerForm" role="form">
+                <input type="hidden" name="command" value="subscriptions">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="readerList">Читатель</label>
                 </div>
                 <div class="form-group">
-                    <select id="readerList" class="selectpicker" data-live-search="true"
-                            data-style="btn-primary" title="Выбрать читателя ...">
+                    <select id="readerList" name="readerList" class="selectpicker" data-live-search="true"
+                            data-style="btn-primary" title="Выбрать читателя ..." onchange="this.form.submit()">
                         <c:forEach var="reader" items="${readers}" varStatus="status">
-                            <option>${reader}</option>
+                            <option value="${reader}">${reader}</option>
                         </c:forEach>
                     </select>
                 </div>
             </form>
 
-            <form method="GET" name="unpaidForm" action="PeriodicEdition" role="form">
+            <form method="POST" name="unpaidForm" id="unpaidForm" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="subscriptions">
                 <div class="row">
                         <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox"
-                        onchange="document.getElementById('unpaidCheck').submit()">
+                        onclick="document.getElementById('unpaidForm').submit()">
                         <label for="unpaidCheck" class="text">Только неоплаченные</label>
                 </div>
             </form>
