@@ -41,6 +41,7 @@ public class AddPaymentCommand implements ActionCommand {
 
         } catch (DAOException e) {
             e.printStackTrace();
+
         } catch (ClassCastException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {

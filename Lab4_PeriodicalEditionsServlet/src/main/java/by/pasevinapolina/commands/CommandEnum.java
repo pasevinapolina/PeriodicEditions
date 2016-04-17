@@ -34,6 +34,10 @@ public enum CommandEnum {
         {
             this.command = new AddEditionCommand();
         }
+    }, ADD_PAYMENT {
+        {
+            this.command = new AddPaymentCommand();
+        }
     };
 
     ActionCommand command;
