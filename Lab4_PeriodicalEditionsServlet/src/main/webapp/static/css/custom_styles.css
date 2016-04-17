@@ -18,6 +18,10 @@
     color: #d7e2c9;
 }
 
+.paid-ok {
+    color: #2e6da4;
+}
+
 .spoiler {
     display: table;
     position: relative;

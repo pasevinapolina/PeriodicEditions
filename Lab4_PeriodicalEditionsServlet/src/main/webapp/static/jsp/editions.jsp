@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=windows-1251" pageEncoding="windows-1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +9,7 @@
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../static/css/custom_styles.css" rel="stylesheet">
 
-    <title>Издания</title>
+    <title>РР·РґР°РЅРёСЏ</title>
 </head>
 <body>
 <c:import url="header.jsp" />
@@ -18,13 +18,13 @@
     <div class="jumbotron">
 
         <div class="row">
-            <h2><strong>Список периодических изданий</strong></h2>
+            <h2><strong>РЎРїРёСЃРѕРє РїРµСЂРёРѕРґРёС‡РµСЃРєРёС… РёР·РґР°РЅРёР№</strong></h2>
         </div>
 
         <div class="row">
             <button type="button" class="btn btn-primary" data-target="#myModal" data-toggle="modal">
                 <a class="glyphicon glyphicon-circle-arrow-down"></a>
-                Зарегистрировать издание</button>
+                Р—Р°СЂРµРіРёСЃС‚СЂРёСЂРѕРІР°С‚СЊ РёР·РґР°РЅРёРµ</button>
         </div>
     </div>
 
@@ -36,14 +36,14 @@
 
         <div class="panel panel-default">
 
-            <div class="panel panel-heading">Сейчас доступны</div>
+            <div class="panel panel-heading">РЎРµР№С‡Р°СЃ РґРѕСЃС‚СѓРїРЅС‹</div>
             <!-- Table -->
             <table class="table table-responsive table-hover">
                 <thead><tr>
-                    <th>Номер</th>
-                    <th>Название</th>
-                    <th>Издательство</th>
-                    <th>Частота выхода в днях</th>
+                    <th>РќРѕРјРµСЂ</th>
+                    <th>РќР°Р·РІР°РЅРёРµ</th>
+                    <th>РР·РґР°С‚РµР»СЊСЃС‚РІРѕ</th>
+                    <th>Р§Р°СЃС‚РѕС‚Р° РІС‹С…РѕРґР° РІ РґРЅСЏС…</th>
                 </tr></thead>
 
                 <tbody>
@@ -70,7 +70,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <span class="modal-title">Регистрация издания</span>
+                    <span class="modal-title">Р РµРіРёСЃС‚СЂР°С†РёСЏ РёР·РґР°РЅРёСЏ</span>
                 </div>
 
                 <div class="modal-body">
@@ -78,25 +78,25 @@
                         <input type="hidden" name="command" value="register_edition">
 
                         <div class="form-group">
-                            <label for="author">Издательство</label>
-                            <input type="text" name="author" class="form-control" id="author" placeholder="Введите издательство">
+                            <label for="author">РР·РґР°С‚РµР»СЊСЃС‚РІРѕ</label>
+                            <input type="text" name="author" class="form-control" id="author" placeholder="Р’РІРµРґРёС‚Рµ РёР·РґР°С‚РµР»СЊСЃС‚РІРѕ">
                         </div>
                         <div class="form-group">
-                            <label for="name">Название</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Введите название">
+                            <label for="name">РќР°Р·РІР°РЅРёРµ</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ">
                         </div>
                         <div class="form-group">
-                            <label for="outFreq">Выходит 1 раз в </label>
+                            <label for="outFreq">Р’С‹С…РѕРґРёС‚ 1 СЂР°Р· РІ </label>
                             <input type="number" name="outFreq" min="0" max="365" class="form-control"
-                                   id="outFreq" placeholder="Частота выхода в днях">
+                                   id="outFreq" placeholder="Р§Р°СЃС‚РѕС‚Р° РІС‹С…РѕРґР° РІ РґРЅСЏС…">
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">
-                            <span class="glyphicon glyphicon-ok"></span>Готово</button>
+                            <span class="glyphicon glyphicon-ok"></span>Р“РѕС‚РѕРІРѕ</button>
                     </form>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">РћС‚РјРµРЅР°</button>
                 </div>
 
             </div>

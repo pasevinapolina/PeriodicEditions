@@ -1,9 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=windows-1251" pageEncoding="UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="../../static/js/subscriptions.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
@@ -27,25 +28,27 @@
         <hr>
 
         <div class="form-group">
-            <form class="form-inline">
+            <form class="form-inline" method="GET" name="readerForm" id="readerForm" action="PeriodicEdition" role="form">
+                <input type="hidden" name="command" value="subscriptions">
+                <input type="hidden" name="readerName" id="readerName" value="">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="readerList">Читатель</label>
                 </div>
                 <div class="form-group">
-                    <select id="readerList" name="readerList" class="selectpicker" data-live-search="true"
+                    <select id="readerList" name="readerList" class="selectpicker readerList" data-live-search="true"
                             data-style="btn-primary" title="Выбрать читателя ...">
                         <c:forEach var="reader" items="${readers}" varStatus="status">
-                            <option>${reader}</option>
+                            <option>${reader.name}</option>
                         </c:forEach>
                     </select>
                 </div>
             </form>
 
-            <form method="POST" name="unpaidForm" id="unpaidForm" action="PeriodicEdition" role="form">
+            <form method="GET" name="unpaidForm" id="unpaidForm" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="subscriptions">
                 <div class="row">
                         <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox"
-                        onclick="document.getElementById('unpaidForm').submit()">
+                            ${unpaidCheck ? 'checked' : ''}  onclick="this.form.submit()">
                         <label for="unpaidCheck" class="text">Только неоплаченные</label>
                 </div>
             </form>
@@ -78,9 +81,9 @@
                     <td>${subscription.reader.name}</td>
                     <td>${subscription.duration}</td>
                     <td>
-                        <input type="checkbox" id="unpaidInfoCheck" class="magic-checkbox" disabled name="unpaidCheck"
-                            ${subscription.paid ? 'checked' : ''}>
-                        <label for="unpaidInfoCheck" class="text"></label>
+                        <c:if test="${subscription.paid}">
+                            <span class="glyphicon glyphicon-ok paid-ok"></span>
+                        </c:if>
                     </td>
                 </tr>
             </c:forEach>

@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=windows-1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <header>
@@ -12,28 +12,28 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="main.jsp">Периодические издания</a>
+                <a class="navbar-brand" href="main.jsp">РџРµСЂРёРѕРґРёС‡РµСЃРєРёРµ РёР·РґР°РЅРёСЏ</a>
             </div>
 
             <div class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a onclick="document.getElementById('emptyForm').submit()" class="submitLink">Главная</a>
+                        <a onclick="document.getElementById('emptyForm').submit()" class="submitLink">Р“Р»Р°РІРЅР°СЏ</a>
                         <form name="emptyForm" method="POST" action="PeriodicEdition" role="form" id="emptyForm">
                             <input type="hidden" name="command" value="" />
                         </form>
                     </li>
-                    <li><a onclick="document.getElementById('editionForm').submit()" class="submitLink">Издания</a>
+                    <li><a onclick="document.getElementById('editionForm').submit()" class="submitLink">РР·РґР°РЅРёСЏ</a>
                         <form name="editionForm" method="POST" action="PeriodicEdition" role="form" id="editionForm">
                             <input type="hidden" name="command" value="editions" />
                         </form>
                     </li>
-                    <li><a onclick="document.getElementById('subscrForm').submit()" class="submitLink">Подписки</a>
+                    <li><a onclick="document.getElementById('subscrForm').submit()" class="submitLink">РџРѕРґРїРёСЃРєРё</a>
                         <form name="subscrForm" method="POST" action="PeriodicEdition" role="form" id="subscrForm">
                             <input type="hidden" name="command" value="subscriptions" />
                         </form>
                     </li>
-                    <li><a onclick="document.getElementById('paymentForm').submit()" class="submitLink">Платежи</a>
+                    <li><a onclick="document.getElementById('paymentForm').submit()" class="submitLink">РџР»Р°С‚РµР¶Рё</a>
                         <form name="paymentForm" method="POST" action="PeriodicEdition" role="form" id="paymentForm">
                             <input type="hidden" name="command" value="payments" />
                         </form>
@@ -46,7 +46,7 @@
                         <li>
                             <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
                                 <input type="hidden" name="command" value="logout" />
-                                <input type="submit" class="btn btn-primary " value="Выйти" />
+                                <input type="submit" class="btn btn-primary " value="Р’С‹Р№С‚Рё" />
                             </form>
                         </li>
                     </ul>

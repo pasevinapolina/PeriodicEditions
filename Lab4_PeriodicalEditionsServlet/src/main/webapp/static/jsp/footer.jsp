@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=windows-1251" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 
@@ -9,10 +9,10 @@
                 <p>&copy; pasevinapolina 2016</p>
             </div>
             <div class="col-md-offset-7 col-md-1">
-                <p><a href="#">О нас</a></p>
+                <p><a href="#">Рћ РЅР°СЃ</a></p>
             </div>
             <div class="col-md-2">
-                <p><a href="#">Обратная связь</a></p>
+                <p><a href="#">РћР±СЂР°С‚РЅР°СЏ СЃРІСЏР·СЊ</a></p>
             </div>
         </div>
     </div>
