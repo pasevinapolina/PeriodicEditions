@@ -8,9 +8,7 @@ import by.pasevinapolina.utils.MessageManager;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.io.IOException;
 
 /**
@@ -40,6 +38,8 @@ public class HomeController extends HttpServlet {
         String page = null;
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(request);
+
+        CookieAction.setCookie(request, response);
 
         page = command.execute(request);
         if(page != null) {
