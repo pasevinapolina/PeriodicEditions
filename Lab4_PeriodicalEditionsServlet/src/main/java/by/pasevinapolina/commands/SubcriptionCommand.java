@@ -45,6 +45,9 @@ public class SubcriptionCommand implements ActionCommand {
 
         for (Subscription s : subscriptions) {
             readers.add(s.getReader().getName());
+            if(!unpaidSubscriptions.contains(s)) {
+                s.setPaid(true);
+            }
         }
 
         request.setAttribute("readers", readers);

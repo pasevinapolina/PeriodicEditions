@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js" defer></script>
+    <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
@@ -27,16 +27,15 @@
         <hr>
 
         <div class="form-group">
-            <form class="form-inline" action="PeriodicEdition" method="POST" name="readerForm" id="readerForm" role="form">
-                <input type="hidden" name="command" value="subscriptions">
+            <form class="form-inline">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="readerList">Читатель</label>
                 </div>
                 <div class="form-group">
                     <select id="readerList" name="readerList" class="selectpicker" data-live-search="true"
-                            data-style="btn-primary" title="Выбрать читателя ..." onchange="this.form.submit()">
+                            data-style="btn-primary" title="Выбрать читателя ...">
                         <c:forEach var="reader" items="${readers}" varStatus="status">
-                            <option value="${reader}">${reader}</option>
+                            <option>${reader}</option>
                         </c:forEach>
                     </select>
                 </div>
@@ -79,7 +78,8 @@
                     <td>${subscription.reader.name}</td>
                     <td>${subscription.duration}</td>
                     <td>
-                        <input id="unpaidInfoCheck" class="magic-checkbox" disabled checked name="unpaidCheck" type="checkbox">
+                        <input type="checkbox" id="unpaidInfoCheck" class="magic-checkbox" disabled name="unpaidCheck"
+                            ${subscription.paid ? 'checked' : ''}>
                         <label for="unpaidInfoCheck" class="text"></label>
                     </td>
                 </tr>

@@ -35,6 +35,8 @@ public class Subscription implements Serializable {
     @OneToMany(mappedBy = "subscription")
     private List<Payment> payments;
 
+    private boolean paid;
+
     /**
      * Default constructor
      */
@@ -58,6 +60,23 @@ public class Subscription implements Serializable {
         this.reader = reader;
         this.duration = duration;
         this.payments = new ArrayList<Payment>();
+        this.paid = false;
+    }
+
+    /**
+     * Checks whether the subscription is paid
+     * @return True if the subscription is paid, false otherwise
+     */
+    public boolean isPaid() {
+        return paid;
+    }
+
+    /**
+     * Sets subscription as paid
+     * @param paid True if the subscription is paid, false otherwise
+     */
+    public void setPaid(boolean paid) {
+        this.paid = paid;
     }
 
     /**
