@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../static/js/subscriptions.js"></script>
+    <script type="text/javascript" src="../../static/js/subscriptions.js" defer></script>
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
@@ -30,7 +30,7 @@
         <div class="form-group">
             <form class="form-inline" method="GET" name="readerForm" id="readerForm" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="subscriptions">
-                <input type="hidden" name="readerName" id="readerName" value="">
+                <input type="hidden" name="readerName" value="123" id="readerName">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="readerList">Читатель</label>
                 </div>
@@ -38,9 +38,11 @@
                     <select id="readerList" name="readerList" class="selectpicker readerList" data-live-search="true"
                             data-style="btn-primary" title="Выбрать читателя ...">
                         <c:forEach var="reader" items="${readers}" varStatus="status">
-                            <option>${reader.name}</option>
+                            <option value="${reader.id}">${reader.name}</option>
                         </c:forEach>
                     </select>
+
+                    <p id="re"></p>
                 </div>
             </form>
 

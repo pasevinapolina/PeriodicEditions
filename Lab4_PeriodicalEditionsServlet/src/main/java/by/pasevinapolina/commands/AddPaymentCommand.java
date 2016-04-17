@@ -7,9 +7,11 @@ import by.pasevinapolina.dao.impl.SubscriptionDaoImpl;
 import by.pasevinapolina.models.Payment;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.DAOException;
+import by.pasevinapolina.utils.MessageManager;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -36,7 +38,7 @@ public class AddPaymentCommand implements ActionCommand {
             Subscription subscription = subscriptionDao.getSubscription(subscrId);
             if(subscription != null) {
                 payment = paymentDao.createPayment(subscription, new Date(),
-                        countPaySum(subscription, duration));
+                        countPaySum(duration));
             }
 
         } catch (DAOException e) {
@@ -48,12 +50,16 @@ public class AddPaymentCommand implements ActionCommand {
             e.printStackTrace();
         }
 
-        if(payment != null)
-            page = new EditionCommand().execute(request);
+        if(payment == null) {
+            request.setAttribute("addError", MessageManager.getProperty("message.paymenterror"));
+        } else {
+            request.setAttribute("addSuccess", MessageManager.getProperty("message.successpayment"));
+        }
+        page = new PaymentCommand().execute(request);
         return page;
     }
 
-    private double countPaySum(Subscription subscription, int duration) {
+    private double countPaySum(int duration) {
         return 37.2 * duration;
     }
 }

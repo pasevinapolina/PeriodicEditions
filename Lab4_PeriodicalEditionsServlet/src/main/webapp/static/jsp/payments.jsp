@@ -23,51 +23,17 @@
             <a class="glyphicon glyphicon-credit-card"></a>Оплатить подписку</button></p>
     </div>
 
-    <div class="container modal-container">
-        <!-- Modal -->
-        <div class="modal fade" id="payModal" role="dialog">
-            <div class="modal-dialog">
-                <!-- Modal content-->
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <span class="modal-title">Оплата</span>
-                    </div>
-
-                    <div class="modal-body">
-                        <form role="form" method="POST" action="PeriodicEdition" name="payForm" id="payForm">
-                            <input type="hidden" name="command" value="add_payment">
-
-                            <div class="form-group">
-                                <label for="subscr_id">Номер подписки</label>
-                                <p>№<input type="text" class="form-control" id="subscr_id" name="subscr_id"
-                                           placeholder="Введите номер"></p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="duration">Количество дней </label>
-                                <input type="number" name="duration" min="0" max="365" class="form-control"
-                                       id="duration" placeholder="Введите количество дней">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="paySum">Сумма для оплаты</label>
-                                <input type="text" class="form-control" name="paySum" disabled id="paySum" placeholder="0">
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-block">
-                                <span class="glyphicon glyphicon-credit-card"></span>Оплатить</button>
-                        </form>
-                    </div>
-
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                    </div>
-
-                </div>
-            </div>
+    <c:if test="${not empty addSuccess}">
+        <div class="alert alert-success">
+            <p><span class="glyphicon glyphicon-ok"></span> ${addSuccess}</p>
         </div>
-    </div>
+    </c:if>
+
+    <c:if test="${not empty addError}">
+        <div class="alert alert-danger">
+            <p><span class="glyphicon glyphicon-alert"></span> ${addError}</p>
+        </div>
+    </c:if>
 
     <div class="panel panel-default">
 
@@ -97,6 +63,52 @@
             </c:forEach>
             </tbody>
             </table>
+        </div>
+    </div>
+</div>
+
+<div class="container modal-container">
+    <!-- Modal -->
+    <div class="modal fade" id="payModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <span class="modal-title">Оплата</span>
+                </div>
+
+                <div class="modal-body">
+                    <form role="form" method="POST" action="PeriodicEdition" name="payForm" id="payForm">
+                        <input type="hidden" name="command" value="add_payment">
+
+                        <div class="form-group">
+                            <label for="subscr_id">Номер подписки</label>
+                            <p>№<input type="text" class="form-control" id="subscr_id" name="subscr_id"
+                                       placeholder="Введите номер"></p>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">Количество дней </label>
+                            <input type="number" name="duration" min="0" max="365" class="form-control"
+                                   id="duration" placeholder="Введите количество дней">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paySum">Сумма для оплаты</label>
+                            <input type="text" class="form-control" name="paySum" disabled id="paySum" placeholder="0">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span class="glyphicon glyphicon-credit-card"></span>Оплатить</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

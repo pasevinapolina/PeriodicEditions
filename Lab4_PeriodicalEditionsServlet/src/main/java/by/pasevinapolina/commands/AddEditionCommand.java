@@ -5,6 +5,7 @@ import by.pasevinapolina.dao.impl.EditionDaoImpl;
 import by.pasevinapolina.models.Edition;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
+import by.pasevinapolina.utils.MessageManager;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -42,8 +43,13 @@ public class AddEditionCommand implements ActionCommand {
             e.printStackTrace();
         }
 
-        if(edition != null)
-            page = new EditionCommand().execute(request);
+        if(edition == null) {
+            request.setAttribute("addError", MessageManager.getProperty("message.editionerror"));
+        } else {
+            request.setAttribute("addSuccess", MessageManager.getProperty("message.editionadded"));
+        }
+
+        page = new EditionCommand().execute(request);
         return page;
     }
 }

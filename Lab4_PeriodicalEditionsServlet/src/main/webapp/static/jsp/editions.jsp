@@ -28,6 +28,18 @@
         </div>
     </div>
 
+    <c:if test="${not empty addSuccess}">
+        <div class="alert alert-success">
+            <p><span class="glyphicon glyphicon-ok"></span> ${addSuccess}</p>
+        </div>
+    </c:if>
+
+    <c:if test="${not empty addError}">
+        <div class="alert alert-danger">
+            <p><span class="glyphicon glyphicon-ok"></span> ${addError}</p>
+        </div>
+    </c:if>
+
     <hr>
     <div>
         <form name="editionForm" method="GET" action="PeriodicEdition" role="form">

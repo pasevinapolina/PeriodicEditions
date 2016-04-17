@@ -1,8 +1,6 @@
 package by.pasevinapolina.commands;
 
-import by.pasevinapolina.dao.ReaderDao;
 import by.pasevinapolina.dao.SubscriptionDao;
-import by.pasevinapolina.dao.impl.ReaderDaoImpl;
 import by.pasevinapolina.dao.impl.SubscriptionDaoImpl;
 import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
@@ -21,6 +19,7 @@ import java.util.List;
 public class SubcriptionCommand implements ActionCommand {
 
     private SubscriptionDao subscriptionDao;
+    private static boolean isUnpaidChecked = false;
 
     @Override
     public String execute(HttpServletRequest request) {
@@ -28,7 +27,7 @@ public class SubcriptionCommand implements ActionCommand {
         String page = null;
         List<Subscription> subscriptions = new ArrayList<Subscription>();
         List<Subscription> unpaidSubscriptions = new ArrayList<Subscription>();
-        HashSet<String> readers = new HashSet<String>();
+        HashSet<Reader> readers = new HashSet<Reader>();
 
         try {
             EntityManager entityManager = (EntityManager)request.getServletContext().getAttribute("em");
@@ -44,18 +43,21 @@ public class SubcriptionCommand implements ActionCommand {
         }
 
         for (Subscription s : subscriptions) {
-            readers.add(s.getReader().getName());
+            readers.add(s.getReader());
             if(!unpaidSubscriptions.contains(s)) {
                 s.setPaid(true);
             }
         }
 
+        String reader = request.getParameter("readerName");
+
         request.setAttribute("readers", readers);
-        if(request.getParameter("unpaidCheck") != null) {
+        if(isUnpaidChecked = (request.getParameter("unpaidCheck") != null)) {
             request.setAttribute("subscriptions", unpaidSubscriptions);
         } else {
             request.setAttribute("subscriptions", subscriptions);
         }
+        request.setAttribute("unpaidCheck", isUnpaidChecked);
         page = ConfigurationManager.getProperty("path.page.subscriptions");
         return page;
     }
