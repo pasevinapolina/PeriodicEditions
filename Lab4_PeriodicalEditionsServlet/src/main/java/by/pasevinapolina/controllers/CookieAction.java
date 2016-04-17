@@ -10,6 +10,12 @@ import java.util.Date;
  * Prepares cookie files
  */
 public class CookieAction {
+
+    /**
+     * Sets cookies for response
+     * @param request Http request
+     * @param response Http response
+     */
     public static void setCookie(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
 
