@@ -12,7 +12,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Command to get edition list
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class EditionCommand implements ActionCommand {
 

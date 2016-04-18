@@ -5,7 +5,9 @@ import by.pasevinapolina.utils.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * Command to logout
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class LogoutCommand implements ActionCommand {
 

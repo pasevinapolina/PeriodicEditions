@@ -5,7 +5,9 @@ import by.pasevinapolina.utils.ConfigurationManager;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- *
+ * Base command. Redirects client to main page
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class EmptyCommand implements ActionCommand {
 

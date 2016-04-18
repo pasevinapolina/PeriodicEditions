@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * Factory for commands
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class ActionFactory {
 

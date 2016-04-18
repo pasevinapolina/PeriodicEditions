@@ -14,7 +14,9 @@ import java.util.HashSet;
 import java.util.List;
 
 /**
- *
+ * Command to get subscriptions list
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class SubcriptionCommand implements ActionCommand {
 

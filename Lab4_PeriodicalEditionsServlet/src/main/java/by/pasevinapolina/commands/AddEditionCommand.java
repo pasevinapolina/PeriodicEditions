@@ -15,6 +15,8 @@ import java.util.Locale;
 
 /**
  * Command to register new edition
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class AddEditionCommand implements ActionCommand {
 

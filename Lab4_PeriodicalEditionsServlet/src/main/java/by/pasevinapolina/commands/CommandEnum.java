@@ -1,7 +1,7 @@
 package by.pasevinapolina.commands;
 
 /**
- *
+ * Command types enumeration
  */
 public enum CommandEnum {
     EMPTY,
@@ -40,8 +40,15 @@ public enum CommandEnum {
         }
     };
 
+    /**
+     * Command from client
+     */
     ActionCommand command;
 
+    /**
+     * Gets command type
+     * @return Command
+     */
     public ActionCommand getCurrentCommand() {
         return command;
     }

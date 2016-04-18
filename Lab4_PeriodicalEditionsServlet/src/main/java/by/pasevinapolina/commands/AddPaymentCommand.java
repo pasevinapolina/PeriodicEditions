@@ -15,7 +15,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
- *
+ * Command to pay for a subscription
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class AddPaymentCommand implements ActionCommand {
 
