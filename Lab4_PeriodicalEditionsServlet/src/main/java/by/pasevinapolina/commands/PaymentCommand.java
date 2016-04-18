@@ -5,6 +5,8 @@ import by.pasevinapolina.dao.impl.PaymentDaoImpl;
 import by.pasevinapolina.models.Payment;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
+import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +20,7 @@ import java.util.List;
  */
 public class PaymentCommand implements ActionCommand {
 
+    public static Logger LOGGER = Logger.getLogger(PaymentCommand.class);
     private PaymentDao paymentDao;
 
     @Override
@@ -33,8 +36,10 @@ public class PaymentCommand implements ActionCommand {
             payments = paymentDao.getAllPayments();
 
         } catch (DAOException e) {
+            LOGGER.error(e.getMessage(), e);
             e.printStackTrace();
         } catch (ClassCastException e) {
+            LOGGER.error(MessageManager.getProperty("message.attribute.error"), e);
             e.printStackTrace();
         }
 

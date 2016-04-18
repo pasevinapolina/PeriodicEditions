@@ -9,14 +9,14 @@
     <script type="text/javascript" src="../../static/js/bootstrap-select.min.js"></script>
 
     <link rel="stylesheet" href="../../static/css/bootstrap.css"/>
-    <link rel="stylesheet" href="../../static/css/magic-check.css" />
+    <link rel="stylesheet" href="../../static/css/magic-check.css"/>
     <link rel="stylesheet" href="../../static/css/bootstrap-select.css">
     <link href="../../static/css/custom_styles.css" rel="stylesheet">
 
     <title>Подписки</title>
 </head>
 <body>
-<c:import url="header.jsp" />
+<c:import url="header.jsp"/>
 
 <div class="container">
     <div class="jumbotron">
@@ -28,30 +28,36 @@
         <hr>
 
         <div class="form-group">
-            <form class="form-inline" method="GET" name="readerForm" id="readerForm" action="PeriodicEdition" role="form">
+            <form class="form-inline" method="GET" name="readerForm" id="readerForm" action="PeriodicEdition"
+                  role="form">
                 <input type="hidden" name="command" value="subscriptions">
-                <input type="hidden" name="readerName" value="123" id="readerName">
                 <div class="form-group">
                     <label class="col-md-2 control-label" for="readerList">Читатель</label>
                 </div>
-                <div class="form-group">
-                    <select id="readerList" name="readerList" class="selectpicker readerList" data-live-search="true"
-                            data-style="btn-primary" title="Выбрать читателя ...">
-                        <c:forEach var="reader" items="${readers}" varStatus="status">
-                            <option value="${reader.id}">${reader.name}</option>
-                        </c:forEach>
-                    </select>
 
-                    <p id="re"></p>
+                <div class="form-group">
+                    <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+                            Выбрать читателя ...
+                            <span class="caret"></span></button>
+                        <ul id="readerList" name="readerList" class="dropdown-menu" onclick="this.form.submit()">
+                            <c:forEach var="reader" items="${readers}" varStatus="status">
+                                <li class="myReader"><span class="readerId" hidden>${reader.id}</span>
+                                    <a>${reader.name}</a>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                        <input type="hidden" name="readerName" value="123" id="readerName">
+                    </div>
                 </div>
             </form>
 
             <form method="GET" name="unpaidForm" id="unpaidForm" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="subscriptions">
                 <div class="row">
-                        <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox"
-                            ${unpaidCheck ? 'checked' : ''}  onclick="this.form.submit()">
-                        <label for="unpaidCheck" class="text">Только неоплаченные</label>
+                    <input id="unpaidCheck" class="magic-checkbox" name="unpaidCheck" type="checkbox"
+                    ${unpaidCheck ? 'checked' : ''} onclick="this.form.submit()">
+                    <label for="unpaidCheck" class="text">Только неоплаченные</label>
                 </div>
             </form>
         </div>
@@ -64,17 +70,19 @@
         <div class="panel panel-heading">Подписки</div>
         <!-- Table -->
         <table class="table table-responsive table-hover">
-            <thead><tr>
+            <thead>
+            <tr>
                 <th>Номер подписки</th>
                 <th>Издание</th>
                 <th>Читатель</th>
                 <th>Длительность, дни</th>
                 <th>Оплачено</th>
-            </tr></thead>
+            </tr>
+            </thead>
 
             <tbody>
             <c:if test="">
-                
+
             </c:if>
             <c:forEach var="subscription" items="${subscriptions}" varStatus="status">
                 <tr>
@@ -97,7 +105,7 @@
 
 </div>
 
-<c:import url="footer.jsp" />
+<c:import url="footer.jsp"/>
 
 </body>
 </html>

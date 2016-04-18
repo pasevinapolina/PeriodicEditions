@@ -20,8 +20,6 @@
             <property name="hibernate.connection.username" value="root" />
             <property name="hibernate.connection.password" value="344lowe11" />
             <property name="hibernate.hbm2ddl.auto" value="update" />
-            <!--<property name="hibernate.format_sql" value="true" />-->
-            <!--<property name="hibernate.show_sql" value="true" />-->
         </properties>
     </persistence-unit>
     

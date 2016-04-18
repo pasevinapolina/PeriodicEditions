@@ -36,7 +36,7 @@
 
     <c:if test="${not empty addError}">
         <div class="alert alert-danger">
-            <p><span class="glyphicon glyphicon-ok"></span> ${addError}</p>
+            <p><span class="glyphicon glyphicon-alert"></span> ${addError}</p>
         </div>
     </c:if>
 

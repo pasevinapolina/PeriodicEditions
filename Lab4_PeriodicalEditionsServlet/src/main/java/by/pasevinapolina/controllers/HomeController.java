@@ -4,6 +4,7 @@ import by.pasevinapolina.commands.ActionCommand;
 import by.pasevinapolina.commands.ActionFactory;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +21,8 @@ import java.io.IOException;
 
 @WebServlet(name = "PeriodicEditionName", urlPatterns = "/PeriodicEdition")
 public class HomeController extends HttpServlet {
+
+    public static Logger LOGGER = Logger.getLogger(HomeController.class);
 
     public HomeController() {
         super();

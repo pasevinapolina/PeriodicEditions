@@ -6,6 +6,8 @@ import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
+import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,8 @@ import java.util.List;
  * @version 1.0
  */
 public class SubcriptionCommand implements ActionCommand {
+
+    public static Logger LOGGER = Logger.getLogger(SubcriptionCommand.class);
 
     private SubscriptionDao subscriptionDao;
     private static boolean isUnpaidChecked = false;
@@ -39,8 +43,10 @@ public class SubcriptionCommand implements ActionCommand {
             unpaidSubscriptions = subscriptionDao.getUnpaidSubscriptions();
 
         } catch (DAOException e) {
+            LOGGER.error(e.getMessage(), e);
             e.printStackTrace();
         } catch (ClassCastException e) {
+            LOGGER.error(MessageManager.getProperty("message.attribute.error"), e);
             e.printStackTrace();
         }
 

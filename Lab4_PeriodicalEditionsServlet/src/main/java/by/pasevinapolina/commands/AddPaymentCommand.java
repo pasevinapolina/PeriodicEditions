@@ -8,6 +8,7 @@ import by.pasevinapolina.models.Payment;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.DAOException;
 import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ import java.util.Date;
  */
 public class AddPaymentCommand implements ActionCommand {
 
+    public static Logger LOGGER = Logger.getLogger(AddPaymentCommand.class);
     private PaymentDao paymentDao;
     private SubscriptionDao subscriptionDao;
 
@@ -44,11 +46,13 @@ public class AddPaymentCommand implements ActionCommand {
             }
 
         } catch (DAOException e) {
+            LOGGER.error(e.getMessage(), e);
             e.printStackTrace();
-
         } catch (ClassCastException e) {
+            LOGGER.error(MessageManager.getProperty("message.attribute.error"), e);
             e.printStackTrace();
         } catch (NumberFormatException e) {
+            LOGGER.error(e.getMessage(), e);
             e.printStackTrace();
         }
 
