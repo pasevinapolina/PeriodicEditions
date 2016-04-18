@@ -8,6 +8,8 @@ import java.util.Date;
 
 /**
  * Prepares cookie files
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class CookieAction {
 
@@ -32,6 +34,11 @@ public class CookieAction {
         response.addCookie(cookie);
     }
 
+    /**
+     * Counts user visits
+     * @param request Http request
+     * @return Current count
+     */
     private static int countRequests(HttpServletRequest request) {
         HttpSession session = request.getSession();
         Integer counter = (Integer)session.getAttribute("counter");

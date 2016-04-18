@@ -6,6 +6,9 @@ import java.io.IOException;
 
 /**
  * Encoding filter
+ * @see javax.servlet.Filter
+ * @author Polina Pasevina
+ * @version 1.0
  */
 
 public class EncodingFilter implements Filter {

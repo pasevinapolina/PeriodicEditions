@@ -12,8 +12,12 @@ import javax.servlet.http.*;
 import java.io.IOException;
 
 /**
- *
+ * Servlet class organizes interaction between client and server
+ * @see javax.servlet.http.HttpServlet
+ * @author Polina Pasevina
+ * @version 1.0
  */
+
 @WebServlet(name = "PeriodicEditionName", urlPatterns = "/PeriodicEdition")
 public class HomeController extends HttpServlet {
 
@@ -33,6 +37,13 @@ public class HomeController extends HttpServlet {
         processRequest(request, response);
     }
 
+    /**
+     * Processes post and get requests
+     * @param request Http request
+     * @param response Http response
+     * @throws ServletException If any servlet error occurs
+     * @throws IOException If any I/O error occurs
+     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String page = null;

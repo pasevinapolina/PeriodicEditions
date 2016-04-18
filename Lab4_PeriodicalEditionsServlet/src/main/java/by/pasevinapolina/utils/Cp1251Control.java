@@ -10,10 +10,13 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 /**
- * Created by user on 18.04.2016.
+ * Control for russian resource bundles
+ * @author Polina Pasevina
+ * @version 1.0
  */
 public class Cp1251Control extends ResourceBundle.Control {
 
+    @Override
     public ResourceBundle newBundle (String baseName, Locale locale,
                                       String format, ClassLoader loader, boolean reload)
             throws IllegalAccessException, InstantiationException, IOException {
