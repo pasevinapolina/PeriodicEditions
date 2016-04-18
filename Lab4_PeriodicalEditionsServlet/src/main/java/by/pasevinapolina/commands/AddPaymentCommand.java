@@ -13,7 +13,9 @@ import org.apache.log4j.Logger;
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Command to pay for a subscription
@@ -30,6 +32,9 @@ public class AddPaymentCommand implements ActionCommand {
     public String execute(HttpServletRequest request) {
         String page = null;
         Payment payment = null;
+        Subscription subscription = null;
+        List<Subscription> unpaidSubscriptions = new ArrayList<Subscription>();
+        boolean isUnpaid = true;
 
         try {
             long subscrId = Long.parseLong(request.getParameter("subscr_id"));
@@ -39,8 +44,11 @@ public class AddPaymentCommand implements ActionCommand {
             paymentDao = new PaymentDaoImpl(entityManager);
             subscriptionDao = new SubscriptionDaoImpl(entityManager);
 
-            Subscription subscription = subscriptionDao.getSubscription(subscrId);
-            if(subscription != null) {
+            subscription = subscriptionDao.getSubscription(subscrId);
+            unpaidSubscriptions = subscriptionDao.getUnpaidSubscriptions();
+            isUnpaid = unpaidSubscriptions.contains(subscription);
+
+            if(subscription != null && isUnpaid) {
                 payment = paymentDao.createPayment(subscription, new Date(),
                         countPaySum(duration));
             }
@@ -58,6 +66,8 @@ public class AddPaymentCommand implements ActionCommand {
 
         if(payment == null) {
             request.setAttribute("addError", MessageManager.getProperty("message.paymenterror"));
+            if(!isUnpaid)
+                request.setAttribute("addError", MessageManager.getProperty("message.alreadypaid"));
         } else {
             request.setAttribute("addSuccess", MessageManager.getProperty("message.successpayment"));
         }
