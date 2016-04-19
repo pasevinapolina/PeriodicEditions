@@ -186,6 +186,32 @@ public class SubscriptionDaoImpl extends DAO
         return subscriptions;
     }
 
+    @Override
+    public List<Subscription> getReaderSubscriptions(long readerId) throws DAOException {
+
+        List<Subscription> readerSubscriptions = null;
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+
+            Query query = entityManager.createNamedQuery("readerSubscriptions");
+            query.setParameter("readerId", readerId);
+            readerSubscriptions = query.getResultList();
+
+            entityManager.flush();
+            transaction.commit();
+        }
+        catch (Exception e) {
+            if(transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw new DAOException(MessageManager.getProperty("message.transaction.error"), e);
+        }
+        return readerSubscriptions;
+    }
+
     private boolean isValid(int duration) {
         return duration > 0;
     }

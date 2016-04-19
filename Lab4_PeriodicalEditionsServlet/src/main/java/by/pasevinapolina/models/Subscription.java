@@ -13,7 +13,11 @@ import java.util.List;
 @Entity
 @Table(name = "subscription")
 
-@NamedQuery(name = "allSubscriptions", query = "SELECT s FROM Subscription s")
+@NamedQueries({
+        @NamedQuery(name = "allSubscriptions", query = "SELECT s FROM Subscription s"),
+        @NamedQuery(name = "readerSubscriptions", query = "SELECT s FROM Subscription s WHERE s.reader.id = :readerId")
+})
+
 public class Subscription implements Serializable {
 
     @Id

@@ -61,4 +61,12 @@ public interface SubscriptionDao {
      * @throws DAOException If any SQL, database or connection exception occurs
      */
     public List<Subscription> getUnpaidSubscriptions() throws DAOException;
+
+    /**
+     * Gets all subscriptions for the reader
+     * @param id Reader id
+     * @return List of subscription objects
+     * @throws DAOException If any SQL, database or connection exception occurs
+     */
+    public List<Subscription> getReaderSubscriptions(long id) throws DAOException;
 }

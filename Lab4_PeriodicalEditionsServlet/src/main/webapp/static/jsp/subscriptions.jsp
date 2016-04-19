@@ -38,16 +38,16 @@
                 <div class="form-group">
                     <div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                            Выбрать читателя ...
+                            Выбрать читателя
                             <span class="caret"></span></button>
-                        <ul id="readerList" name="readerList" class="dropdown-menu" onclick="this.form.submit()">
+                        <ul id="readerList" name="readerList" class="dropdown-menu" onclick="document.getElementById('readerForm').submit()">
                             <c:forEach var="reader" items="${readers}" varStatus="status">
                                 <li class="myReader"><span class="readerId" hidden>${reader.id}</span>
                                     <a>${reader.name}</a>
                                 </li>
                             </c:forEach>
                         </ul>
-                        <input type="hidden" name="readerName" value="123" id="readerName">
+                        <input type="hidden" name="readerName" value="" id="readerName">
                     </div>
                 </div>
             </form>
