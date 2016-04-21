@@ -40,7 +40,8 @@ public class SubcriptionCommand implements ActionCommand {
         List<Subscription> unpaidSubscriptions = new ArrayList<Subscription>();
         HashSet<Reader> readers = new HashSet<Reader>();
         List<Subscription> readerSubscriptions = new ArrayList<Subscription>();
-        long readerId;
+        long readerId = 0;
+        String reader = null;
 
         try {
             EntityManager entityManager = (EntityManager)request.getServletContext().getAttribute("em");
@@ -49,8 +50,8 @@ public class SubcriptionCommand implements ActionCommand {
             readerDao = new ReaderDaoImpl(entityManager);
             readers = new HashSet<Reader>(readerDao.getAllReaders());
 
-            String reader = request.getParameter("readerName");
-            if(isReaderSelected = (reader != null)) {
+            reader = request.getParameter("readerName");
+            if(isReaderSelected = (reader != null) && !reader.equals("0")) {
                 readerId = Long.parseLong(reader);
                 readerSubscriptions = subscriptionDao.getReaderSubscriptions(readerId);
             } else {
@@ -87,6 +88,7 @@ public class SubcriptionCommand implements ActionCommand {
             request.setAttribute("subscriptions", unpaidSubscriptions);
         } else if(isReaderSelected) {
             request.setAttribute("subscriptions", readerSubscriptions);
+            request.setAttribute("selectedReader", reader);
         } else {
             request.setAttribute("subscriptions", subscriptions);
         }

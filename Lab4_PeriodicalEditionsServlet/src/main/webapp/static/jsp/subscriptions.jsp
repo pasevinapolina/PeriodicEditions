@@ -41,6 +41,9 @@
                             Выбрать читателя
                             <span class="caret"></span></button>
                         <ul id="readerList" name="readerList" class="dropdown-menu" onclick="document.getElementById('readerForm').submit()">
+                            <li aria-selected="true" class="myReader"><span class="readerId" hidden>0</span>
+                                <a>Все читатели</a>
+                            </li>
                             <c:forEach var="reader" items="${readers}" varStatus="status">
                                 <li class="myReader"><span class="readerId" hidden>${reader.id}</span>
                                     <a>${reader.name}</a>
