@@ -31,6 +31,7 @@ public class LoginCommand implements ActionCommand {
         return page;
     }
 
+    //to do
     private boolean checkLogin(String login, String password) {
         return true;
     }

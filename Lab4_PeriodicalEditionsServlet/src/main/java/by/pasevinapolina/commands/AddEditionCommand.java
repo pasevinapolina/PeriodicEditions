@@ -6,6 +6,7 @@ import by.pasevinapolina.models.Edition;
 import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
 import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,11 @@ import java.util.Locale;
  * @version 1.0
  */
 public class AddEditionCommand implements ActionCommand {
+
+    /**
+     * Logger
+     */
+    public static Logger LOGGER = Logger.getLogger(AddEditionCommand.class);
 
     private EditionDao editionDao;
 
@@ -38,10 +44,13 @@ public class AddEditionCommand implements ActionCommand {
             edition = editionDao.createEdition(author, name, outFreq);
 
         } catch (DAOException e) {
+            LOGGER.error(e.getMessage());
             e.printStackTrace();
         } catch (ClassCastException e) {
+            LOGGER.error(MessageManager.getProperty("message.attribute.error"), e);
             e.printStackTrace();
         } catch (NumberFormatException e) {
+            LOGGER.error(e.getMessage());
             e.printStackTrace();
         }
 

@@ -1,8 +1,11 @@
 package by.pasevinapolina.utils;
 
+import org.apache.log4j.Logger;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.Locale;
@@ -15,6 +18,8 @@ import java.util.ResourceBundle;
  * @version 1.0
  */
 public class Cp1251Control extends ResourceBundle.Control {
+
+    public static Logger LOGGER = Logger.getLogger(Cp1251Control.class);
 
     @Override
     public ResourceBundle newBundle (String baseName, Locale locale,
@@ -41,6 +46,9 @@ public class Cp1251Control extends ResourceBundle.Control {
         if (stream != null) {
             try {
                 bundle = new PropertyResourceBundle(new InputStreamReader(stream, "Cp1251"));
+            }
+            catch (UnsupportedEncodingException e) {
+                LOGGER.error(e.getMessage());
             }
             finally {
                 stream.close();

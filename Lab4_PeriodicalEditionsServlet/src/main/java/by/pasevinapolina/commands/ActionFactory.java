@@ -1,6 +1,7 @@
 package by.pasevinapolina.commands;
 
 import by.pasevinapolina.utils.MessageManager;
+import org.apache.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,6 +11,11 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0
  */
 public class ActionFactory {
+
+    /**
+     * Logger
+     */
+    public static Logger LOGGER = Logger.getLogger(ActionCommand.class);
 
     /**
      * Defines what command to create
@@ -29,6 +35,7 @@ public class ActionFactory {
             CommandEnum currentEnum = CommandEnum.valueOf(action.toUpperCase());
             currentCommand = currentEnum.getCurrentCommand();
         } catch (IllegalArgumentException e) {
+            LOGGER.error(MessageManager.getProperty("message.wrongaction"));
             request.setAttribute("wrongAction", action + MessageManager.getProperty("message.wrongaction"));
         }
         return currentCommand;
