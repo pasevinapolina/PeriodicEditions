@@ -29,9 +29,7 @@
 
             <c:if test="${not empty errorMessage}">
                 <div class="alert alert-danger">
-                    <p>
-                        ${errorMessage}
-                    </p>
+                    <p><span class="glyphicon glyphicon-remove"></span>${errorMessage}</p>
                 </div>
             </c:if>
 
@@ -43,6 +41,14 @@
             </div>
 
             <div class="form-group">
+                <c:if test="${not empty duplicateMessage}">
+                    <div class="alert alert-danger">
+                        <p><span class="glyphicon glyphicon-remove"></span> ${duplicateMessage}</p>
+                    </div>
+                </c:if>
+            </div>
+
+            <div class="form-group">
                 <label for="name">Ваше имя</label>
                 <input id="name" type="text" name="name" class="form-control" value="" placeholder="Введите имя пользователя">
             </div>
@@ -50,6 +56,14 @@
             <div class="form-group">
                 <label for="password">Пароль</label>
                 <input id="password" type="password" name="password" class="form-control" value="" placeholder="Введите пароль" />
+            </div>
+
+            <div class="form-group">
+                <c:if test="${not empty mismatchMessage}">
+                    <div class="alert alert-danger">
+                        <p><span class="glyphicon glyphicon-remove"></span> ${mismatchMessage}</p>
+                    </div>
+                </c:if>
             </div>
 
             <div class="form-group">

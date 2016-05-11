@@ -37,9 +37,7 @@
             <div class="form-group">
                 <c:if test="${not empty errorLoginPassMessage}">
                 <div class="alert alert-danger">
-                    <p>
-                        ${errorLoginPassMessage}
-                    </p>
+                    <p><span class="glyphicon glyphicon-remove"></span>${errorLoginPassMessage}</p>
                 </div>
                 </c:if>
             </div>

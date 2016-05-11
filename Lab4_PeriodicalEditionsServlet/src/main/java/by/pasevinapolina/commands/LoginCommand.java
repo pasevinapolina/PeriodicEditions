@@ -38,7 +38,7 @@ public class LoginCommand implements ActionCommand {
         if(reader != null) {
             request.getSession().setAttribute("user", reader);
 
-            if(reader.getUserRole().getId() == 2) {
+            if(reader.getUserRole() == 2) {
                 request.getSession().setAttribute("userType", ClientType.ADMIN);
             }
             else {

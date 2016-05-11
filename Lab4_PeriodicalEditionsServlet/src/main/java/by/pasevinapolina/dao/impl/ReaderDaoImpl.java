@@ -48,6 +48,7 @@ public class ReaderDaoImpl extends DAO
             reader.setName(name);
             reader.setLogin(login);
             reader.setPassword(password);
+            reader.setUserRole(1);
 
             entityManager.persist(reader);
             entityManager.flush();

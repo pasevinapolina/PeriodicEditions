@@ -48,11 +48,12 @@ public class RegisterCommand implements ActionCommand {
         }
 
         if(reader != null) {
-            request.setAttribute("user", reader);
-            request.setAttribute("userType", ClientType.USER);
+            request.getSession().setAttribute("user", reader);
+            request.getSession().setAttribute("userType", ClientType.USER);
             page = ConfigurationManager.getProperty("path.page.main");
         } else {
-            request.setAttribute("errorMessage", MessageManager.getProperty("message.loginerror"));
+            request.getSession().setAttribute("duplicateMessage", MessageManager.getProperty("message.registererror"));
+            page = ConfigurationManager.getProperty("path.page.register");
         }
         return page;
     }
