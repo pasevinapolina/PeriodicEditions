@@ -53,10 +53,16 @@
                         </c:when>
                         <c:otherwise>
                             <li>
-                                <a href="login.jsp"><input type="button" class="btn btn-primary" value="Войти" /></a>
+                                <form name="loginPageForm" method="POST" action="PeriodicEdition" role="form">
+                                    <input type="hidden" name="command" value="login_page" />
+                                    <a class="btn"><input type="submit" class="btn btn-primary " value="Войти" /></a>
+                                </form>
                             </li>
                             <li>
-                                <a href="register.jsp"><input type="button" class="btn btn-primary" value="Зарегистрироваться" /></a>
+                                <form name="registerPageForm" method="POST" action="PeriodicEdition" role="form">
+                                    <input type="hidden" name="command" value="register_page" />
+                                    <a class="btn"><input type="submit" class="btn btn-primary " value="Зарегистрироваться" /></a>
+                                </form>
                             </li>
                         </c:otherwise>
                     </c:choose>

@@ -30,7 +30,7 @@ public class SecurityFilter implements Filter {
             clientType = ClientType.GUEST;
             session.setAttribute("userType", clientType);
             RequestDispatcher dispatcher = servletRequest.getServletContext()
-                    .getRequestDispatcher(ConfigurationManager.getProperty("path.page.register"));
+                    .getRequestDispatcher(ConfigurationManager.getProperty("path.page.login"));
             dispatcher.forward(httpRequest, httpResponse);
             return;
         }

@@ -39,9 +39,20 @@ public enum CommandEnum {
         {
             this.command = new AddEditionCommand();
         }
-    }, ADD_PAYMENT {
+    },
+    ADD_PAYMENT {
         {
             this.command = new AddPaymentCommand();
+        }
+    },
+    REGISTER_PAGE {
+        {
+            this.command = new RegisterPageCommand();
+        }
+    },
+    LOGIN_PAGE {
+        {
+            this.command = new LoginPageCommand();
         }
     };
 
