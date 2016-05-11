@@ -4,7 +4,6 @@ import by.pasevinapolina.dao.ReaderDao;
 import by.pasevinapolina.dao.SubscriptionDao;
 import by.pasevinapolina.dao.impl.ReaderDaoImpl;
 import by.pasevinapolina.dao.impl.SubscriptionDaoImpl;
-import by.pasevinapolina.models.Edition;
 import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.ConfigurationManager;
@@ -23,9 +22,9 @@ import java.util.List;
  * @author Polina Pasevina
  * @version 1.0
  */
-public class SubcriptionCommand implements ActionCommand {
+public class SubscriptionCommand implements ActionCommand {
 
-    public static Logger LOGGER = Logger.getLogger(SubcriptionCommand.class);
+    public static Logger LOGGER = Logger.getLogger(SubscriptionCommand.class);
 
     private SubscriptionDao subscriptionDao;
     private ReaderDao readerDao;

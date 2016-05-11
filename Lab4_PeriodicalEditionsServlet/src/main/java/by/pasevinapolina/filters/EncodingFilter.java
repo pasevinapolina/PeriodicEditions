@@ -1,4 +1,4 @@
-package by.pasevinapolina.controllers;
+package by.pasevinapolina.filters;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

@@ -5,6 +5,11 @@ package by.pasevinapolina.commands;
  */
 public enum CommandEnum {
     EMPTY,
+    REGISTER {
+        {
+            this.command = new RegisterCommand();
+        }
+    },
     LOGIN {
         {
             this.command = new LoginCommand();
@@ -22,7 +27,7 @@ public enum CommandEnum {
     },
     SUBSCRIPTIONS {
         {
-            this.command = new SubcriptionCommand();
+            this.command = new SubscriptionCommand();
         }
     },
     PAYMENTS {

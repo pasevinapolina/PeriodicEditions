@@ -12,6 +12,7 @@
         <class>by.pasevinapolina.models.Reader</class>
         <class>by.pasevinapolina.models.Subscription</class>
         <class>by.pasevinapolina.models.Payment</class>
+        <class>by.pasevinapolina.models.UserRole</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />

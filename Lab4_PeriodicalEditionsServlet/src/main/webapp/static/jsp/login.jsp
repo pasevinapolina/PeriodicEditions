@@ -13,13 +13,19 @@
 </head>
 <body>
 
-<div class="jumbotron">
+<c:import url="header.jsp" />
+
+<div class="container">
+    <div class="jumbotron">
+        <h2><strong>Вход в систему</strong></h2>
+    </div>
+
     <div class="col-md-8">
         <form name="loginForm" method="POST" action="PeriodicEdition" role="form">
             <input type="hidden" name="command" value="login"/>
 
             <div class="form-group">
-                <label for="login">Имя пользователя</label>
+                <label for="login">Логин</label>
                 <input id="login" type="text" name="login" class="form-control" value="" placeholder="Введите имя пользователя" />
             </div>
 
@@ -33,8 +39,6 @@
                 <div class="alert alert-danger">
                     <p>
                         ${errorLoginPassMessage}
-                        ${wrongAction}
-                        ${nullPage}
                     </p>
                 </div>
                 </c:if>
@@ -44,6 +48,8 @@
         </form>
     </div>
 </div>
+
+<c:import url="footer.jsp" />
 
 </body>
 </html>

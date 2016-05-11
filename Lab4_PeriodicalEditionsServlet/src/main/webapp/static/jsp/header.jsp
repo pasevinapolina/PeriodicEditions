@@ -40,17 +40,28 @@
                     </li>
                 </ul>
 
-                <c:if test="${not empty user}">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#" class="glyphicon glyphicon-user">${user}</a> </li>
-                        <li>
-                            <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
-                                <input type="hidden" name="command" value="logout" />
-                                <input type="submit" class="btn btn-primary " value="Выйти" />
-                            </form>
-                        </li>
-                    </ul>
-                </c:if>
+                <ul class="nav navbar-nav navbar-right">
+                    <c:choose>
+                        <c:when test="${not empty user}">
+                            <li><a href="#" class="glyphicon glyphicon-user">${user.login}</a> </li>
+                            <li>
+                                <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
+                                    <input type="hidden" name="command" value="logout" />
+                                    <a class="btn"><input type="submit" class="btn btn-primary " value="Выйти" /></a>
+                                </form>
+                            </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li>
+                                <a href="login.jsp"><input type="button" class="btn btn-primary" value="Войти" /></a>
+                            </li>
+                            <li>
+                                <a href="register.jsp"><input type="button" class="btn btn-primary" value="Зарегистрироваться" /></a>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+
             </div><!--/.nav-collapse -->
         </div>
     </div>

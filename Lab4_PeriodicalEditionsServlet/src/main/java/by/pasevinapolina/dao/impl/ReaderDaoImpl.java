@@ -31,7 +31,8 @@ public class ReaderDaoImpl extends DAO
     }
 
     @Override
-    public Reader createReader(String name) throws DAOException {
+    public Reader createReader(String login, String password,
+                               String name) throws DAOException {
 
         Reader reader = null;
         EntityTransaction transaction = null;
@@ -45,6 +46,8 @@ public class ReaderDaoImpl extends DAO
 
             reader = new Reader();
             reader.setName(name);
+            reader.setLogin(login);
+            reader.setPassword(password);
 
             entityManager.persist(reader);
             entityManager.flush();
@@ -68,6 +71,36 @@ public class ReaderDaoImpl extends DAO
             transaction = entityManager.getTransaction();
             transaction.begin();
             reader = entityManager.find(Reader.class, id);
+
+            entityManager.flush();
+            transaction.commit();
+        }
+        catch(Exception e) {
+            if(transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw new DAOException(MessageManager.getProperty("message.transaction.error"), e);
+        }
+        return reader;
+    }
+
+    @Override
+    public Reader getReader(String login, String password) throws DAOException {
+        Reader reader = null;
+        List<Reader> readers = null;
+        EntityTransaction transaction = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+            Query query = entityManager.createNamedQuery("loginReader");
+            query.setParameter("login", login);
+            query.setParameter("password", password);
+
+            readers = query.getResultList();
+            if(readers.size() > 0) {
+                reader = readers.get(0);
+            }
 
             entityManager.flush();
             transaction.commit();

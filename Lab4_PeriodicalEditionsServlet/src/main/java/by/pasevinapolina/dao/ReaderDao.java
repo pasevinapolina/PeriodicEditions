@@ -15,18 +15,30 @@ public interface ReaderDao {
     /**
      * Inserts new reader in database
      * @param name Reader's name
+     * @param login  Reader's login
+     * @param password  Reader's password
      * @return Reader object
      * @throws DAOException If any SQL, database or connection exception occurs
      */
-    public Reader createReader(String name) throws DAOException;
+    public Reader createReader(String login, String password,
+                               String name) throws DAOException;
 
     /**
-     * Gets edition under given id if exists
+     * Gets reader under given id if exists
      * @param id Reader id
      * @return Reader object
      * @throws DAOException If any SQL, database or connection exception occurs
      */
     public  Reader getReader(long id) throws DAOException;
+
+    /**
+     * Gets reader by login and password if exists
+     * @param login Reader login
+     * @param password Reader password
+     * @return Reader object
+     * @throws DAOException If any SQL, database or connection exception occurs
+     */
+    public Reader getReader(String login, String password) throws DAOException;
 
     /**
      * Deletes reader under given id from database if exists

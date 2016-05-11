@@ -22,7 +22,7 @@
             Позволяет просматривать доступные издания, регистрировать новые издания, подписываться, проводить платежи.
         </p>
         <p>
-            <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
+            <form name="editionForm" method="POST" action="PeriodicEdition" role="form">
                 <input type="hidden" name="command" value="editions" />
                 <button type="submit" class="btn btn-primary">Доступные издания</button>
             </form>
@@ -35,7 +35,7 @@
             <p>Раздел Издания позволит Вам просматривать информацию о доступных изданиях.
                 Удобная таблица поможет выбрать наиболее интересное для Вас издание </p>
             <p>
-                <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
+                <form name="editionForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="editions" />
                     <button type="submit" class="btn btn-primary">Перейти к списку &raquo;</button>
                 </form>
@@ -46,7 +46,7 @@
             <p>Подписываться на любимые издания теперь стало удобнее!
                 Появилась возможность просмотра всех подписок и подписок определенного пользователя</p>
             <p>
-                <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
+                <form name="subscrForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="subscriptions" />
                     <button type="submit" class="btn btn-primary">Подробнее &raquo;</button>
                 </form>
@@ -57,7 +57,7 @@
             <p>Легко оплатить и получать свежие номера изданий.
                 Контроль оплаты и неоплаченных подписок поможет соорентироваться быстрее </p>
             <p>
-                <form name="logoutForm" method="POST" action="PeriodicEdition" role="form">
+                <form name="payForm" method="POST" action="PeriodicEdition" role="form">
                     <input type="hidden" name="command" value="payments" />
                     <button type="submit" class="btn btn-primary">Оплатить подписку &raquo;</button>
                 </form>
