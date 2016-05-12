@@ -1,7 +1,14 @@
 package by.pasevinapolina.models;
 
 /**
- * Created by user on 08.05.2016.
+ * Enum for client types
  */
 public enum ClientType {
+    GUEST(0),
+    USER(1),
+    ADMIN(2);
+
+    ClientType(int role) {
+
+    }
 }

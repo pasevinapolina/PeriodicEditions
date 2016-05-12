@@ -33,7 +33,7 @@ public class Subscription implements Serializable {
     @JoinColumn(name = "reader_id")
     private Reader reader;
 
-    @Column(name = "duration")
+    @Column(name = "duration", nullable = false)
     private int duration;
 
     @OneToMany(mappedBy = "subscription")

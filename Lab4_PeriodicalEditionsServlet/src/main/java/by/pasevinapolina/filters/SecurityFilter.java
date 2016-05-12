@@ -1,5 +1,6 @@
 package by.pasevinapolina.filters;
 
+import by.pasevinapolina.commands.*;
 import by.pasevinapolina.models.ClientType;
 import by.pasevinapolina.utils.ConfigurationManager;
 
@@ -15,7 +16,6 @@ import java.io.IOException;
 public class SecurityFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
     }
 
     @Override
@@ -26,13 +26,26 @@ public class SecurityFilter implements Filter {
         HttpSession session = httpRequest.getSession();
 
         ClientType clientType = (ClientType) session.getAttribute("userType");
-        if(clientType == null) {
-            clientType = ClientType.GUEST;
-            session.setAttribute("userType", clientType);
-            RequestDispatcher dispatcher = servletRequest.getServletContext()
-                    .getRequestDispatcher(ConfigurationManager.getProperty("path.page.login"));
-            dispatcher.forward(httpRequest, httpResponse);
-            return;
+        ActionFactory client = new ActionFactory();
+        ActionCommand currentCommand = client.defineCommand(httpRequest);
+
+        if(!(currentCommand instanceof RegisterPageCommand) &&
+                !(currentCommand instanceof EmptyCommand) && !(currentCommand instanceof LoginCommand)) {
+            if(clientType == ClientType.GUEST) {
+                RequestDispatcher dispatcher = servletRequest.getServletContext()
+                        .getRequestDispatcher(ConfigurationManager.getProperty("path.page.login"));
+                dispatcher.forward(httpRequest, httpResponse);
+                return;
+            }
+
+            if (clientType == null) {
+                clientType = ClientType.GUEST;
+                session.setAttribute("userType", clientType);
+                RequestDispatcher dispatcher = servletRequest.getServletContext()
+                        .getRequestDispatcher(ConfigurationManager.getProperty("path.page.login"));
+                dispatcher.forward(httpRequest, httpResponse);
+                return;
+            }
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }
