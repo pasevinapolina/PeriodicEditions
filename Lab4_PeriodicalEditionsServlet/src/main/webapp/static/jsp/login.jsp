@@ -45,10 +45,19 @@
                 </c:if>
             </div>
 
-            <input type="submit" value="Войти" class="btn btn-default"/>
-
+            <div class="form-group">
+                <input type="submit" value="Войти" class="btn btn-primary"/>
+                <div>
+                    <p>Еще не с нами?</p>
+                    <a onclick="document.getElementById('regForm').submit()" class="submitLink">Зарегистрируйтесь</a>
+                </div>
+            </div>
         </form>
     </div>
+
+    <form name="regForm" method="POST" action="PeriodicEdition" role="form" id="regForm">
+        <input type="hidden" name="command" value="register_page" />
+    </form>
 </div>
 
 <c:import url="footer.jsp" />

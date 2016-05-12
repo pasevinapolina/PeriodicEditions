@@ -71,7 +71,7 @@
                 <input id="confirm" type="password" name="confirm" class="form-control" value="" placeholder="Повторите пароль">
             </div>
 
-            <input type="submit" value="Зарегистрироваться" class="btn btn-default"/>
+            <input type="submit" value="Зарегистрироваться" class="btn btn-primary"/>
         </form>
     </div>
 
