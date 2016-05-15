@@ -1,5 +1,7 @@
+<%@ page import="by.pasevinapolina.models.ClientType" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="ctg" uri="customtags" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" language="java" %>
 
 <html>
@@ -39,6 +41,9 @@
     <div class="panel panel-default">
 
         <div class="panel panel-heading">Недавние платежи</div>
+
+        <% ClientType userType = (ClientType) request.getSession().getAttribute("userType"); %>
+
         <!-- Table -->
         <table class="table table-responsive table-hover">
             <thead><tr>
@@ -47,7 +52,9 @@
                 <th>Читатель</th>
                 <th>Дата</th>
                 <th>Сумма</th>
-                <th>Действия</th>
+                <c:if test="${userType == ClientType.ADMIN}">
+                    <th>Действия</th>
+                </c:if>
             </tr></thead>
 
             <tbody>
@@ -58,8 +65,8 @@
                     <td>${payment.subscription.reader.name}</td>
                     <td><fmt:formatDate type="date" value="${payment.payDate}"/></td>
                     <td><fmt:formatNumber type="currency" value="${payment.paySum}" /></td>
-                    <td><a class="glyphicon glyphicon-edit" >Редактировать</a> |
-                        <a class="glyphicon glyphicon-trash">Удалить</a></td>
+
+                    <ctg:tb-action/>
                 </tr>
             </c:forEach>
             </tbody>
