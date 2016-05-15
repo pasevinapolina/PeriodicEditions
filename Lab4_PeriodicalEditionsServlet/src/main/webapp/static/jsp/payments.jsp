@@ -9,6 +9,7 @@
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../static/js/payments.js"></script>
 
     <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../static/css/custom_styles.css" rel="stylesheet">
@@ -59,67 +60,25 @@
 
             <tbody>
             <c:forEach var="payment" items="${payments}" varStatus="status" >
-                <tr>
-                    <td>${payment.subscription.id}</td>
+                <tr id="${payment.id}">
+                    <td>
+                        ${payment.subscription.id}
+                    </td>
                     <td>"${payment.subscription.edition.name}", ${payment.subscription.edition.author}</td>
                     <td>${payment.subscription.reader.name}</td>
-                    <td><fmt:formatDate type="date" value="${payment.payDate}"/></td>
-                    <td><fmt:formatNumber type="currency" value="${payment.paySum}" /></td>
+                    <td id="tdDate"><fmt:formatDate type="date" value="${payment.payDate}"/></td>
+                    <td id="tdSum"><fmt:formatNumber type="currency" value="${payment.paySum}" /></td>
 
-                    <ctg:tb-action/>
+                    <ctg:tb-action deleteModalId="deletePayModal" editModalId="editModal"
+                                   delClass="pay-del" editClass="pay-edit"/>
                 </tr>
             </c:forEach>
             </tbody>
-            </table>
-        </div>
+        </table>
     </div>
 </div>
 
-<div class="container modal-container">
-    <!-- Modal -->
-    <div class="modal fade" id="payModal" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <span class="modal-title">Оплата</span>
-                </div>
-
-                <div class="modal-body">
-                    <form role="form" method="POST" action="PeriodicEdition" name="payForm" id="payForm">
-                        <input type="hidden" name="command" value="add_payment">
-
-                        <div class="form-group">
-                            <label for="subscr_id">Номер подписки</label>
-                            <p>№<input type="text" class="form-control" id="subscr_id" name="subscr_id"
-                                       placeholder="Введите номер"></p>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="duration">Количество дней </label>
-                            <input type="number" name="duration" min="0" max="365" class="form-control"
-                                   id="duration" placeholder="Введите количество дней">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="paySum">Сумма для оплаты</label>
-                            <input type="text" class="form-control" name="paySum" disabled id="paySum" placeholder="0">
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <span class="glyphicon glyphicon-credit-card"></span>Оплатить</button>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
+<c:import url="pay_modals.jsp" />
 
 <c:import url="footer.jsp" />
 

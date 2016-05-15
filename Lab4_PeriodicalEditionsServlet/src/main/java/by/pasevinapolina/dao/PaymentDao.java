@@ -35,10 +35,10 @@ public interface PaymentDao {
 
     /**
      * Deletes payment under given id from database if exists
-     * @param payment Payment to update
+     * @param id Payment id to delete
      * @throws DAOException If any SQL, database or connection exception occurs
      */
-    public void deletePayment(Payment payment) throws DAOException;
+    public void deletePayment(long id) throws DAOException;
 
     /**
      * Updates payment under given id

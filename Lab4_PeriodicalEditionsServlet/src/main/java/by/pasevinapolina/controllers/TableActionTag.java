@@ -14,6 +14,43 @@ import java.io.IOException;
  */
 public class TableActionTag extends TagSupport {
 
+    private String deleteModalId;
+    private String editModalId;
+    private String delClass;
+    private String editClass;
+
+    /**
+     * Sets new modal id for delete action
+     * @param deleteModalId Modal id
+     */
+    public void setDeleteModalId(String deleteModalId) {
+        this.deleteModalId = deleteModalId;
+    }
+
+    /**
+     * Sets new modal id for edit action
+     * @param editModalId Modal id
+     */
+    public void setEditModalId(String editModalId) {
+        this.editModalId = editModalId;
+    }
+
+    /**
+     * Sets class for delete sction
+     * @param delClass
+     */
+    public void setDelClass(String delClass) {
+        this.delClass = delClass;
+    }
+
+    /**
+     * Sets class for edit action
+     * @param editClass
+     */
+    public void setEditClass(String editClass) {
+        this.editClass = editClass;
+    }
+
     @Override
     public int doStartTag() throws JspException {
 
@@ -21,8 +58,10 @@ public class TableActionTag extends TagSupport {
         if(currentClient == ClientType.ADMIN) {
             try {
                 JspWriter out = pageContext.getOut();
-                out.write("<td><a class=\"glyphicon glyphicon-edit\" >Редактировать</a> |\n" +
-                        " <a class=\"glyphicon glyphicon-trash\">Удалить</a></td>\n");
+                out.write("<td><a class=\"glyphicon glyphicon-edit " + editClass + "\" " +
+                        " data-toggle=\"modal\" data-target=\"#" + editModalId + "\">Редактировать</a> |\n" +
+                        " <a class=\"glyphicon glyphicon-trash " + delClass + "\" " +
+                        " data-toggle=\"modal\" data-target=\"#" + deleteModalId + "\">Удалить</a></td>\n");
             } catch (IOException e) {
                 throw new JspException(e.getMessage());
             }

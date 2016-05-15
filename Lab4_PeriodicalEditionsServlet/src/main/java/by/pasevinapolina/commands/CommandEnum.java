@@ -45,6 +45,16 @@ public enum CommandEnum {
             this.command = new AddPaymentCommand();
         }
     },
+    DELETE_PAYMENT {
+        {
+            this.command = new DeletePaymentCommand();
+        }
+    },
+    EDIT_PAYMENT {
+        {
+            this.command = new EditPaymentCommand();
+        }
+    },
     REGISTER_PAGE {
         {
             this.command = new RegisterPageCommand();

@@ -86,18 +86,18 @@ public class PaymentDaoImpl extends DAO
     }
 
     @Override
-    public void deletePayment(Payment payment) throws DAOException {
+    public void deletePayment(long id) throws DAOException {
         EntityTransaction transaction = null;
 
         try {
+            Payment payment = entityManager.find(Payment.class, id);
             transaction = entityManager.getTransaction();
+
             transaction.begin();
-
-            payment = entityManager.merge(payment);
             entityManager.remove(payment);
-
             entityManager.flush();
             transaction.commit();
+
         } catch(Exception e) {
             if(transaction != null && transaction.isActive()) {
                 transaction.rollback();

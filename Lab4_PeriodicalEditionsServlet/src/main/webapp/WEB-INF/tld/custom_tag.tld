@@ -13,6 +13,26 @@
         <name>tb-action</name>
         <tag-class>by.pasevinapolina.controllers.TableActionTag</tag-class>
         <body-content>empty</body-content>
+
+        <attribute>
+            <name>deleteModalId</name>
+            <required>true</required>
+        </attribute>
+
+        <attribute>
+            <name>editModalId</name>
+            <required>true</required>
+        </attribute>
+
+        <attribute>
+            <name>delClass</name>
+            <required>false</required>
+        </attribute>
+
+        <attribute>
+            <name>editClass</name>
+            <required>false</required>
+        </attribute>
     </tag>
 
 </taglib>
