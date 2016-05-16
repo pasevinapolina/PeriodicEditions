@@ -15,6 +15,7 @@ import java.util.List;
 
 @NamedQueries({
         @NamedQuery(name = "allReaders", query = "SELECT r FROM Reader r"),
+        @NamedQuery(name = "allReadersWithRole", query = "SELECT r FROM Reader r WHERE r.userRole= :userRole"),
         @NamedQuery(name = "loginReader",
                 query = "SELECT r FROM Reader r WHERE r.login= :login AND r.password = :password")})
 public class Reader implements Serializable {

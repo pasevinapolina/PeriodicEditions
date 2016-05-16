@@ -110,16 +110,15 @@ public class EditionDaoImpl  extends DAO
     }
 
     @Override
-    public void deleteEdition(Edition edition) throws DAOException {
+    public void deleteEdition(long id) throws DAOException {
         EntityTransaction transaction = null;
 
         try {
             transaction = entityManager.getTransaction();
+            Edition edition = entityManager.find(Edition.class, id);
+
             transaction.begin();
-
-            edition = entityManager.merge(edition);
             entityManager.remove(edition);
-
             entityManager.flush();
             transaction.commit();
         } catch(Exception e) {

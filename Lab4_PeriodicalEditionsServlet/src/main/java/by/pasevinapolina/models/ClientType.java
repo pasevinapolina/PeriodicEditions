@@ -9,6 +9,12 @@ public enum ClientType {
     ADMIN(2);
 
     ClientType(int role) {
+        this.role = role;
+    }
 
+    private int role;
+
+    public int getRole() {
+        return role;
     }
 }

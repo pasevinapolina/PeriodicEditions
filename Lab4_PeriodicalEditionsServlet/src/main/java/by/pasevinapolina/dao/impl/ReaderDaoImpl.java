@@ -187,6 +187,32 @@ public class ReaderDaoImpl extends DAO
         return readers;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public List<Reader> getAllReaders(int userRole) throws DAOException {
+        EntityTransaction transaction = null;
+        List<Reader> readers = null;
+
+        try {
+            transaction = entityManager.getTransaction();
+            transaction.begin();
+
+            Query query = entityManager.createNamedQuery("allReadersWithRole");
+            query.setParameter("userRole", userRole);
+            readers = query.getResultList();
+
+            entityManager.flush();
+            transaction.commit();
+        }
+        catch(Exception e) {
+            if(transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            throw new DAOException(MessageManager.getProperty("message.transaction.error"), e);
+        }
+        return readers;
+    }
+
     private boolean isValid(String name) {
         return name.length() != 0;
     }

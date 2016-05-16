@@ -4,6 +4,7 @@ import by.pasevinapolina.dao.ReaderDao;
 import by.pasevinapolina.dao.SubscriptionDao;
 import by.pasevinapolina.dao.impl.ReaderDaoImpl;
 import by.pasevinapolina.dao.impl.SubscriptionDaoImpl;
+import by.pasevinapolina.models.ClientType;
 import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
 import by.pasevinapolina.utils.ConfigurationManager;
@@ -47,7 +48,7 @@ public class SubscriptionCommand implements ActionCommand {
             subscriptionDao = new SubscriptionDaoImpl(entityManager);
 
             readerDao = new ReaderDaoImpl(entityManager);
-            readers = new HashSet<Reader>(readerDao.getAllReaders());
+            readers = new HashSet<Reader>(readerDao.getAllReaders(ClientType.USER.getRole()));
 
             reader = request.getParameter("readerName");
             if(isReaderSelected = (reader != null) && !reader.equals("0")) {

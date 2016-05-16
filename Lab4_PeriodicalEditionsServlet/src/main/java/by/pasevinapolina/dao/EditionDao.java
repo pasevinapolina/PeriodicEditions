@@ -43,7 +43,7 @@ public interface EditionDao {
      * @param edition Edition to delete
      * @throws DAOException If any SQL, database or connection exception occurs
      */
-    public void deleteEdition(Edition edition) throws DAOException;
+    public void deleteEdition(long id) throws DAOException;
 
     /**
      * Gets all editions from the database

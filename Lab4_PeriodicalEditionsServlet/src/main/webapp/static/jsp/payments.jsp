@@ -70,7 +70,7 @@
                     <td><fmt:formatNumber type="number" maxFractionDigits="2" pattern="#.##" value="${payment.paySum}" />
                         <span> руб.</span></td>
 
-                    <ctg:tb-action deleteModalId="deletePayModal" editModalId="editModal"
+                    <ctg:tb-action deleteModalId="deletePayModal" editModalId="editPayModal"
                                    delClass="pay-del" editClass="pay-edit"/>
                 </tr>
             </c:forEach>

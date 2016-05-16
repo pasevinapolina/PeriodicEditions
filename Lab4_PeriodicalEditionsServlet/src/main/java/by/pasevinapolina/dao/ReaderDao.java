@@ -61,4 +61,12 @@ public interface ReaderDao {
      * @throws DAOException If any SQL, database or connection exception occurs
      */
     public List<Reader> getAllReaders() throws DAOException;
+
+    /**
+     * Gets all readers with given role from database
+     * @param userRole User role
+     * @return List of Reader objects
+     * @throws DAOException If any SQL, database or connection exception occurs
+     */
+    public List<Reader> getAllReaders(int userRole) throws DAOException;
 }

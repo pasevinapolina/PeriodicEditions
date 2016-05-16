@@ -64,7 +64,7 @@ public class EditPaymentCommand implements ActionCommand {
         }
 
         if(newPayment == null) {
-            request.setAttribute("addError", MessageManager.getProperty("message.editpayment.error"));
+            request.setAttribute("addError", MessageManager.getProperty("message.edit.error"));
         } else {
             request.setAttribute("addSuccess", MessageManager.getProperty("message.editpayment.success"));
         }

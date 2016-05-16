@@ -55,6 +55,16 @@ public enum CommandEnum {
             this.command = new EditPaymentCommand();
         }
     },
+    DELETE_EDITION {
+        {
+            this.command = new DeleteEditionCommand();
+        }
+    },
+    EDIT_EDITION {
+        {
+            this.command = new EditEditionCommand();
+        }
+    },
     REGISTER_PAGE {
         {
             this.command = new RegisterPageCommand();

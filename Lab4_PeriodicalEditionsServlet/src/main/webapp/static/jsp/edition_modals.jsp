@@ -2,17 +2,17 @@
 
 <div class="container modal-container">
     <!-- Modal -->
-    <div class="modal fade" id="deletePayModal" role="dialog">
+    <div class="modal fade" id="delEditionModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <span class="modal-title">Удаление платежа</span>
+                    <span class="modal-title">Удаление издания</span>
                 </div>
 
                 <div class="modal-body">
-                    <p>Вы действительно хотите удалить платеж?</p>
+                    <p>Вы действительно хотите удалить издание <strong id="editionName"></strong>?</p>
                 </div>
 
                 <div class="modal-footer">
@@ -23,8 +23,8 @@
                                 <span class="glyphicon glyphicon-trash"></span>Удалить</button>
                         </div>
 
-                        <input type="hidden" name="command" value="delete_payment">
-                        <input type="hidden" name="delPayId" id="delPayId" value="">
+                        <input type="hidden" name="command" value="delete_edition">
+                        <input type="hidden" name="delEditionId" id="delEditionId" value="">
                     </form>
                 </div>
             </div>
@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="editPayModal" role="dialog">
+<div class="modal fade" id="editEditionModal" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content"></div>
     </div>
@@ -43,26 +43,31 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <span class="modal-title">Редактирование платежа</span>
+                <span class="modal-title">Редактирование издания</span>
             </div>
 
             <form action="PeriodicEdition" method="POST" id="editForm" role="form">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="editPayDate">Дата платежа</label>
-                        <input type="date" class="form-control"
-                               id="editPayDate" name="editPayDate" value="">
+                        <label for="editEditionName">Название</label>
+                        <input type="text" class="form-control" id="editEditionName" name="editEditionName" value="">
                     </div>
 
                     <div class="form-group">
-                        <label for="editPaySum">Сумма оплаты</label>
-                        <p class="form-inline"><input type="text" class="form-control" name="editPaySum" id="editPaySum" value=""> руб.</p>
+                        <label for="editAuthor">Издательство</label>
+                        <input type="text" class="form-control" id="editAuthor" name="editAuthor" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editFrequency">Выходит 1 раз в</label>
+                        <input type="number" class="form-control" id="editFrequency" name="editFrequency"
+                               max="365" min="0" value="">
                     </div>
                 </div>
 
                 <div class="modal-footer">
-                    <input type="hidden" name="command" value="edit_payment">
-                    <input type="hidden" name="editPayId" id="editPayId" value="">
+                    <input type="hidden" name="command" value="edit_edition">
+                    <input type="hidden" name="editEditionId" id="editEditionId" value="">
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
@@ -72,41 +77,36 @@
     </div>
 </div>
 
-
 <div class="container modal-container">
     <!-- Modal -->
-    <div class="modal fade" id="payModal" role="dialog">
+    <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <span class="modal-title">Оплата</span>
+                    <span class="modal-title">Регистрация издания</span>
                 </div>
 
                 <div class="modal-body">
-                    <form role="form" method="POST" action="PeriodicEdition" name="payForm" id="payForm">
-                        <input type="hidden" name="command" value="add_payment">
+                    <form role="form" method="POST" action="PeriodicEdition" name="registerEditionForm">
+                        <input type="hidden" name="command" value="register_edition">
 
                         <div class="form-group">
-                            <label for="subscr_id">Номер подписки</label>
-                            <p>№<input type="text" class="form-control" id="subscr_id" name="subscr_id"
-                                       placeholder="Введите номер"></p>
+                            <label for="author">Издательство</label>
+                            <input type="text" name="author" class="form-control" id="author" placeholder="Введите издательство">
                         </div>
-
                         <div class="form-group">
-                            <label for="duration">Количество дней </label>
-                            <input type="number" name="duration" min="0" max="365" class="form-control"
-                                   id="duration" placeholder="Введите количество дней" oninput="countPaySum()">
+                            <label for="name">Название</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Введите название">
                         </div>
-
                         <div class="form-group">
-                            <label for="paySum">Сумма для оплаты</label>
-                            <input type="text" class="form-control" name="paySum" disabled id="paySum" placeholder="0">
+                            <label for="outFreq">Выходит 1 раз в </label>
+                            <input type="number" name="outFreq" min="0" max="365" class="form-control"
+                                   id="outFreq" placeholder="Частота выхода в днях">
                         </div>
-
                         <button type="submit" class="btn btn-primary btn-block">
-                            <span class="glyphicon glyphicon-credit-card"></span>Оплатить</button>
+                            <span class="glyphicon glyphicon-ok"></span>Готово</button>
                     </form>
                 </div>
 
