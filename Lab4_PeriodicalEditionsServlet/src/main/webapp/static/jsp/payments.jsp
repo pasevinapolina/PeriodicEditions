@@ -66,8 +66,9 @@
                     </td>
                     <td>"${payment.subscription.edition.name}", ${payment.subscription.edition.author}</td>
                     <td>${payment.subscription.reader.name}</td>
-                    <td id="tdDate"><fmt:formatDate type="date" value="${payment.payDate}"/></td>
-                    <td id="tdSum"><fmt:formatNumber type="currency" value="${payment.paySum}" /></td>
+                    <td><fmt:formatDate type="date" pattern="dd.MM.yyyy" value="${payment.payDate}"/></td>
+                    <td><fmt:formatNumber type="number" maxFractionDigits="2" pattern="#.##" value="${payment.paySum}" />
+                        <span> руб.</span></td>
 
                     <ctg:tb-action deleteModalId="deletePayModal" editModalId="editModal"
                                    delClass="pay-del" editClass="pay-edit"/>

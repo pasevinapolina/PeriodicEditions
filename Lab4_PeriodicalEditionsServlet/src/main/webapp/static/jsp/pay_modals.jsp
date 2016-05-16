@@ -46,32 +46,28 @@
                 <span class="modal-title">Редактирование платежа</span>
             </div>
 
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="editPayDate">Дата платежа</label>
-                    <input type="date" class="form-control" id="editPayDate" name="editPayDate" value="">
+            <form action="PeriodicEdition" method="POST" id="editForm" role="form">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="editPayDate">Дата платежа</label>
+                        <input type="date" class="form-control"
+                               id="editPayDate" name="editPayDate" value="">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editPaySum">Сумма оплаты</label>
+                        <p class="form-inline"><input type="text" class="form-control" name="editPaySum" id="editPaySum" value=""> руб.</p>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="editDuration">Количество дней </label>
-                    <input type="number" name="editDuration" min="0" max="365" class="form-control"
-                           id="editDuration" value="">
-                </div>
-
-                <div class="form-group">
-                    <label for="editPaySum">Сумма для оплаты</label>
-                    <input type="text" class="form-control" name="editPaySum" id="editPaySum" value="">
-                </div>
-            </div>
-
-            <div class="modal-footer">
-                <form action="PeriodicEdition" method="POST" id="editForm" role="form">
+                <div class="modal-footer">
                     <input type="hidden" name="command" value="edit_payment">
                     <input type="hidden" name="editPayId" id="editPayId" value="">
+
                     <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

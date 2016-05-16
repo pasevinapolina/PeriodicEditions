@@ -3,16 +3,17 @@ $('document').ready(function() {
         var id = $(this).parents('tr').attr('id');
         $('#delPayId').attr('value', id);
     });
-});
 
-$('document').ready(function() {
     $('.pay-edit').click(function() {
         var id = $(this).parents('tr').attr('id');
+        var sum = $(this).parents('tr').children('td')[4].childNodes[0].nodeValue;
+        var date = $(this).parents('tr').children('td')[3].childNodes[0].nodeValue;
+
+        var dateArr = date.split('.', 3);
 
         $('#editPayId').attr('value', id);
-        $('#editPaySum').attr('value', $(this).parents('tr').children('#tdSum').children().value);
-        $('#editDuration').attr('value', $(this).parents('tr').children('#tdDate').children().value);
-        $('#editPayDate').attr('value', $(this).parents('tr').children('#tdDate').children().value);
+        $('#editPaySum').attr('value', sum);
+        $('#editPayDate').attr('value', dateArr[2] + '-' + dateArr[1] + '-' + dateArr[0]);
     });
 });
 

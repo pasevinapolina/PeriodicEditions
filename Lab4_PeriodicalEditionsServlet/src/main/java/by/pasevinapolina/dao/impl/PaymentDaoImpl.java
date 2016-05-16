@@ -129,7 +129,7 @@ public class PaymentDaoImpl extends DAO
             }
             throw new DAOException(MessageManager.getProperty("message.transaction.error"), e);
         }
-        return null;
+        return newPayment;
     }
 
     @SuppressWarnings("unchecked")

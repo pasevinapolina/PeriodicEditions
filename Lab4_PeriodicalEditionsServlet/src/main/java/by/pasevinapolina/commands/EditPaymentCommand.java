@@ -38,8 +38,8 @@ public class EditPaymentCommand implements ActionCommand {
 
         try {
             paymentId = Long.parseLong(request.getParameter("editPayId"));
-            paySum = Double.parseDouble(request.getParameter("editPaySum"));
-            DateFormat dateFormat = new SimpleDateFormat("dd.mm.yyyy");
+            paySum = Double.parseDouble(request.getParameter("editPaySum").trim().replace(',', '.'));
+            DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             payDate = dateFormat.parse(request.getParameter("editPayDate"));
 
             EntityManager entityManager = (EntityManager) request.getServletContext().getAttribute("em");
@@ -47,7 +47,7 @@ public class EditPaymentCommand implements ActionCommand {
             newPayment = paymentDao.getPayment(paymentId);
             newPayment.setPayDate(payDate);
             newPayment.setPaySum(paySum);
-            paymentDao.updatePayment(newPayment);
+            newPayment = paymentDao.updatePayment(newPayment);
 
         } catch (DAOException e) {
             LOGGER.error(e.getMessage());
@@ -61,6 +61,12 @@ public class EditPaymentCommand implements ActionCommand {
         } catch (ParseException e) {
             LOGGER.error(e.getMessage());
             e.printStackTrace();
+        }
+
+        if(newPayment == null) {
+            request.setAttribute("addError", MessageManager.getProperty("message.editpayment.error"));
+        } else {
+            request.setAttribute("addSuccess", MessageManager.getProperty("message.editpayment.success"));
         }
 
         page = new PaymentCommand().execute(request);
