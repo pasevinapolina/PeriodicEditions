@@ -65,6 +65,11 @@ public enum CommandEnum {
             this.command = new EditEditionCommand();
         }
     },
+    SUBSCRIBE {
+        {
+            this.command = new SubscribeCommand();
+        }
+    },
     REGISTER_PAGE {
         {
             this.command = new RegisterPageCommand();

@@ -40,7 +40,7 @@ public interface EditionDao {
 
     /**
      * Deletes edition under given id from database if exists
-     * @param edition Edition to delete
+     * @param id Edition to delete
      * @throws DAOException If any SQL, database or connection exception occurs
      */
     public void deleteEdition(long id) throws DAOException;

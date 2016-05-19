@@ -49,10 +49,10 @@ public class Reader implements Serializable {
 
     /**
      * Constructor. Initializes fields {@link #name}, {@link #login}, {@link #password}, {@link #userRole}
-     * @param name
-     * @param login
-     * @param password
-     * @param userRole
+     * @param name Reader name
+     * @param login Reader login
+     * @param password Password
+     * @param userRole User role
      */
     public Reader(String name, String login, String password, int userRole) {
         this.name = name;

@@ -29,7 +29,7 @@ public class SecurityFilter implements Filter {
         ActionFactory client = new ActionFactory();
         ActionCommand currentCommand = client.defineCommand(httpRequest);
 
-        if(!(currentCommand instanceof RegisterPageCommand) &&
+        if(!(currentCommand instanceof RegisterPageCommand) && !(currentCommand instanceof RegisterCommand) &&
                 !(currentCommand instanceof EmptyCommand) && !(currentCommand instanceof LoginCommand)) {
             if(clientType == ClientType.GUEST) {
                 RequestDispatcher dispatcher = servletRequest.getServletContext()

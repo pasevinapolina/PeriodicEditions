@@ -21,7 +21,7 @@ public class EditEditionCommand implements ActionCommand {
     /**
      * Logger
      */
-    public static Logger LOGGER = Logger.getLogger(DeletePaymentCommand.class);
+    public static Logger LOGGER = Logger.getLogger(EditEditionCommand.class);
 
     private EditionDao editionDao;
 

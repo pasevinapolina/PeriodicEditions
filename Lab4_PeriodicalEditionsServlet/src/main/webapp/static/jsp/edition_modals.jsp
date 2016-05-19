@@ -105,15 +105,15 @@
                             <input type="number" name="outFreq" min="0" max="365" class="form-control"
                                    id="outFreq" placeholder="Частота выхода в днях">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">
-                            <span class="glyphicon glyphicon-ok"></span>Готово</button>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">
+                                <span class="glyphicon glyphicon-ok"></span>Готово
+                            </button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
+                        </div>
                     </form>
                 </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Отмена</button>
-                </div>
-
             </div>
         </div>
     </div>

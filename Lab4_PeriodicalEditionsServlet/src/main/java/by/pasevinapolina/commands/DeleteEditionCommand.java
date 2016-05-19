@@ -20,7 +20,7 @@ public class DeleteEditionCommand implements ActionCommand {
     /**
      * Logger
      */
-    public static Logger LOGGER = Logger.getLogger(DeletePaymentCommand.class);
+    public static Logger LOGGER = Logger.getLogger(DeleteEditionCommand.class);
 
     private EditionDao editionDao;
 

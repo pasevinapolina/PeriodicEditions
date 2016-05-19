@@ -36,8 +36,8 @@ public class TableActionTag extends TagSupport {
     }
 
     /**
-     * Sets class for delete sction
-     * @param delClass
+     * Sets class for delete action
+     * @param delClass Class for link to delete
      */
     public void setDelClass(String delClass) {
         this.delClass = delClass;
@@ -45,7 +45,7 @@ public class TableActionTag extends TagSupport {
 
     /**
      * Sets class for edit action
-     * @param editClass
+     * @param editClass Class for link to edit
      */
     public void setEditClass(String editClass) {
         this.editClass = editClass;
