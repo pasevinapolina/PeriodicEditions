@@ -3,10 +3,16 @@
 <html>
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>
+    <%--<script type="text/javascript" src="../../static/js/jquery-2.1.4.min.js"></script>--%>
+    <%--<script type="text/javascript" src="../../static/js/bootstrap.min.js"></script>--%>
 
-    <link href="../../static/css/bootstrap.min.css" rel="stylesheet">
+    <%--<link href="../../static/css/bootstrap.min.css" rel="stylesheet">--%>
+    <%--<link href="../../static/css/custom_styles.css" rel="stylesheet">--%>
+
+    <script type="text/javascript" src="webjars/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script type="text/javascript" src="webjars/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <link href="webjars/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../static/css/custom_styles.css" rel="stylesheet">
 
     <title>Главная</title>
