@@ -148,16 +148,18 @@
 
                         <div class="form-group">
                             <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-                                    Выбрать издание
-                                    <span class="caret"></span></button>
+                                <button class="btn btn-primary dropdown-toggle" type="button"
+                                        data-toggle="dropdown">
+                                    <span id="editionSelect">Выбрать издание</span><span class="caret"></span>
+                                </button>
                                 <ul id="editionList" name="editionList" class="dropdown-menu" onclick="">
-                                    <li aria-selected="true" class="myReader"><span class="editionId" hidden>0</span>
-                                        <a>Все издания</a>
+                                    <li class="myEdition"><span class="editionId" hidden>0</span>
+                                        <a class="myEditionName">Все издания</a>
                                     </li>
                                     <c:forEach var="edition" items="${editions}" varStatus="status">
-                                        <li class="myEdition"><span class="editionId" hidden>${edition.id}</span>
-                                            <a>${edition.name}, ${edition.author}</a>
+                                        <li class="myEdition">
+                                            <span class="editionId" hidden>${edition.id}</span>
+                                            <a class="myEditionName">${edition.name}, ${edition.author}</a>
                                         </li>
                                     </c:forEach>
                                 </ul>

@@ -4,6 +4,9 @@ $('document').ready(function() {
     });
 
     $('.myEdition').click(function () {
-        $("#selEditionId").attr('value', $(this).children(".editionId").text());
+        var name = $(this).children('.myEditionName').text();
+        var id = $(this).children(".editionId").text();
+        $("#selEditionId").attr('value', id);
+        $("#editionSelect").text(name);
     });
 });

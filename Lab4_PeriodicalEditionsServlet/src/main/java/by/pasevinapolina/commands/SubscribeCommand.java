@@ -10,15 +10,12 @@ import by.pasevinapolina.models.ClientType;
 import by.pasevinapolina.models.Edition;
 import by.pasevinapolina.models.Reader;
 import by.pasevinapolina.models.Subscription;
-import by.pasevinapolina.utils.ConfigurationManager;
 import by.pasevinapolina.utils.DAOException;
 import by.pasevinapolina.utils.MessageManager;
 import org.apache.log4j.Logger;
-import org.apache.taglibs.standard.extra.spath.ParseException;
 
 import javax.persistence.EntityManager;
 import javax.servlet.http.HttpServletRequest;
-import java.util.HashSet;
 
 /**
  * Command to add subscription
@@ -68,7 +65,7 @@ public class SubscribeCommand implements ActionCommand {
             request.setAttribute("addSuccess", MessageManager.getProperty("message.subscribe.success"));
         }
 
-        page = ConfigurationManager.getProperty("path.page.subscriptions");
+        page = new SubscriptionCommand().execute(request);
         return page;
     }
 }
